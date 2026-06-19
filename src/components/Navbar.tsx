@@ -95,17 +95,26 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {navLinks.map((l) => (
-            <Link
-              key={l.label}
-              to={l.to}
-              search={l.search}
-              className="relative text-xs uppercase tracking-[0.16em] text-foreground/80 transition-colors hover:text-foreground"
-              activeProps={{ className: "text-foreground" }}
-            >
-              {l.label}
-            </Link>
-          ))}
+          <Link to="/" className={navItemClass} activeProps={{ className: "text-foreground" }}>
+            Home
+          </Link>
+          <Link to="/shop" className={navItemClass} activeProps={{ className: "text-foreground" }}>
+            Shop
+          </Link>
+          <Link
+            to="/shop"
+            search={{ category: "Custom" }}
+            className={navItemClass}
+          >
+            Custom
+          </Link>
+          <Link
+            to="/wishlist"
+            className={navItemClass}
+            activeProps={{ className: "text-foreground" }}
+          >
+            Wishlist
+          </Link>
         </nav>
 
         <div className="flex items-center gap-1">
