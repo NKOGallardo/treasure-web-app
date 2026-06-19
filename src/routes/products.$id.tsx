@@ -114,7 +114,7 @@ function ProductDetail() {
             <div className="mt-6">
               <p className="eyebrow mb-3">Select Size</p>
               <div className="flex flex-wrap gap-2">
-                {product.sizes.map((s) => (
+                {product.sizes.map((s: string) => (
                   <button
                     key={s}
                     onClick={() => setSize(s)}
