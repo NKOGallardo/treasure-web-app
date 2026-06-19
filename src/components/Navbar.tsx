@@ -22,12 +22,10 @@ import { useStore } from "@/context/StoreContext";
 import { useTheme } from "@/lib/theme";
 import { categories } from "@/data/products";
 
-const navLinks = [
-  { label: "Home", to: "/" },
-  { label: "Shop", to: "/shop" },
-  { label: "Custom", to: "/shop", search: { category: "Custom" } },
-  { label: "Wishlist", to: "/wishlist" },
-];
+const navItemClass =
+  "relative text-xs uppercase tracking-[0.16em] text-foreground/80 transition-colors hover:text-foreground";
+const mobileItemClass =
+  "rounded-md px-3 py-3 text-sm uppercase tracking-[0.12em] transition-colors hover:bg-accent";
 
 export function Navbar() {
   const { cartCount, wishlist } = useStore();
