@@ -65,7 +65,7 @@ function Shop() {
   const maxPrice = search.maxPrice ?? PRICE_CEILING;
 
   const setSearch = (patch: Partial<ShopSearch>) =>
-    navigate({ search: (prev) => ({ ...prev, ...patch }) });
+    navigate({ search: (prev: ShopSearch) => ({ ...prev, ...patch }) });
 
   const filtered = useMemo(() => {
     let list = [...products];

@@ -22,12 +22,10 @@ import { useStore } from "@/context/StoreContext";
 import { useTheme } from "@/lib/theme";
 import { categories } from "@/data/products";
 
-const navLinks = [
-  { label: "Home", to: "/" },
-  { label: "Shop", to: "/shop" },
-  { label: "Custom", to: "/shop", search: { category: "Custom" } },
-  { label: "Wishlist", to: "/wishlist" },
-];
+const navItemClass =
+  "relative text-xs uppercase tracking-[0.16em] text-foreground/80 transition-colors hover:text-foreground";
+const mobileItemClass =
+  "rounded-md px-3 py-3 text-sm uppercase tracking-[0.12em] transition-colors hover:bg-accent";
 
 export function Navbar() {
   const { cartCount, wishlist } = useStore();
@@ -60,16 +58,18 @@ export function Navbar() {
               </SheetTitle>
             </SheetHeader>
             <nav className="mt-8 flex flex-col gap-1 px-1">
-              {navLinks.map((l) => (
-                <Link
-                  key={l.label}
-                  to={l.to}
-                  search={l.search}
-                  className="rounded-md px-3 py-3 text-sm uppercase tracking-[0.12em] transition-colors hover:bg-accent"
-                >
-                  {l.label}
-                </Link>
-              ))}
+              <Link to="/" className={mobileItemClass}>
+                Home
+              </Link>
+              <Link to="/shop" className={mobileItemClass}>
+                Shop
+              </Link>
+              <Link to="/shop" search={{ category: "Custom" }} className={mobileItemClass}>
+                Custom
+              </Link>
+              <Link to="/wishlist" className={mobileItemClass}>
+                Wishlist
+              </Link>
               <div className="mt-4 border-t border-border pt-4">
                 <p className="eyebrow mb-2 px-3 text-muted-foreground">Collections</p>
                 {categories.map((c) => (
@@ -95,17 +95,26 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {navLinks.map((l) => (
-            <Link
-              key={l.label}
-              to={l.to}
-              search={l.search}
-              className="relative text-xs uppercase tracking-[0.16em] text-foreground/80 transition-colors hover:text-foreground"
-              activeProps={{ className: "text-foreground" }}
-            >
-              {l.label}
-            </Link>
-          ))}
+          <Link to="/" className={navItemClass} activeProps={{ className: "text-foreground" }}>
+            Home
+          </Link>
+          <Link to="/shop" className={navItemClass} activeProps={{ className: "text-foreground" }}>
+            Shop
+          </Link>
+          <Link
+            to="/shop"
+            search={{ category: "Custom" }}
+            className={navItemClass}
+          >
+            Custom
+          </Link>
+          <Link
+            to="/wishlist"
+            className={navItemClass}
+            activeProps={{ className: "text-foreground" }}
+          >
+            Wishlist
+          </Link>
         </nav>
 
         <div className="flex items-center gap-1">
