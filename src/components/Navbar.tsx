@@ -58,16 +58,18 @@ export function Navbar() {
               </SheetTitle>
             </SheetHeader>
             <nav className="mt-8 flex flex-col gap-1 px-1">
-              {navLinks.map((l) => (
-                <Link
-                  key={l.label}
-                  to={l.to}
-                  search={l.search}
-                  className="rounded-md px-3 py-3 text-sm uppercase tracking-[0.12em] transition-colors hover:bg-accent"
-                >
-                  {l.label}
-                </Link>
-              ))}
+              <Link to="/" className={mobileItemClass}>
+                Home
+              </Link>
+              <Link to="/shop" className={mobileItemClass}>
+                Shop
+              </Link>
+              <Link to="/shop" search={{ category: "Custom" }} className={mobileItemClass}>
+                Custom
+              </Link>
+              <Link to="/wishlist" className={mobileItemClass}>
+                Wishlist
+              </Link>
               <div className="mt-4 border-t border-border pt-4">
                 <p className="eyebrow mb-2 px-3 text-muted-foreground">Collections</p>
                 {categories.map((c) => (
