@@ -10,16 +10,16 @@ import atelierImg from "@/assets/atelier.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "oneof1custom — Fine Jewellery Handcrafted in South Africa" },
+      { title: "oneof1custom — Handmade Bead Jewellery" },
       {
         name: "description",
         content:
-          "Explore oneof1custom's collection of ethically sourced diamond rings, necklaces, earrings and bespoke fine jewellery, handcrafted for life's most precious moments.",
+          "Explore the oneof1custom collection of hand-wrapped rings, beaded bracelets and unique handmade pieces, crafted for your everyday style.",
       },
-      { property: "og:title", content: "oneof1custom — Fine Jewellery" },
+      { property: "og:title", content: "oneof1custom — Handmade Bead Jewellery" },
       {
         property: "og:description",
-        content: "Ethically sourced diamond jewellery, handcrafted in South Africa.",
+        content: "Handmade bead jewellery crafted with chosen beads in South Africa.",
       },
     ],
   }),
