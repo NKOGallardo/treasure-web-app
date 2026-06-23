@@ -693,7 +693,15 @@ svg {
   flex: 1;
 }
 
-/* ----------------------------------------------------------------- Centered states */
+/* Always-dark surfaces: keep light foreground in both themes. */
+.hero__content,
+.footer,
+.testimonials {
+  --primary-foreground: oklch(0.97 0.01 85);
+  color: var(--primary-foreground);
+}
+
+
 .state {
   padding: 6rem 0;
   text-align: center;
@@ -1752,7 +1760,63 @@ svg {
   gap: 0.5rem;
 }
 
+/* ----------------------------------------------------------------- Quick view */
+.quickview {
+  display: grid;
+}
+.quickview__img {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  object-fit: cover;
+}
+.quickview__body {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+.quickview__title {
+  margin-top: 0.5rem;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.quickview__rating {
+  margin-top: 0.5rem;
+}
+.quickview__price {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.quickview__desc {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+.quickview__material {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted-foreground);
+}
+.quickview__cta {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.quickview__details {
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
+.link-desktop {
+  display: none;
+}
+
 /* ----------------------------------------------------------------- Responsive */
+
 @media (min-width: 640px) {
   .form-grid--2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1794,6 +1858,13 @@ svg {
   .testimonials__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+  .quickview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .quickview__body {
+    padding: 2rem;
+  }
+
   .section-head__title,
   .page__title,
   .hero__title,
@@ -1839,6 +1910,3 @@ svg {
   }
 }
 
-.link-desktop {
-  display: none;
-}

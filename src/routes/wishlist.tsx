@@ -21,13 +21,11 @@ function Wishlist() {
 
   if (saved.length === 0) {
     return (
-      <div className="container-luxe py-24 text-center">
-        <Heart className="mx-auto size-12 text-muted-foreground" />
-        <h1 className="mt-6 font-serif text-4xl">Your wishlist is empty</h1>
-        <p className="mt-3 text-muted-foreground">
-          Tap the heart on any piece to save it for later.
-        </p>
-        <Button asChild variant="luxe" size="lg" className="mt-8">
+      <div className="container-luxe state">
+        <Heart className="state__icon" style={{ width: "3rem", height: "3rem" }} />
+        <h1 className="state__title">Your wishlist is empty</h1>
+        <p className="state__text">Tap the heart on any piece to save it for later.</p>
+        <Button asChild variant="luxe" size="lg" style={{ marginTop: "2rem" }}>
           <Link to="/shop">Discover pieces</Link>
         </Button>
       </div>
@@ -35,9 +33,9 @@ function Wishlist() {
   }
 
   return (
-    <div className="container-luxe py-12">
-      <h1 className="mb-10 font-serif text-4xl md:text-5xl">Your Wishlist</h1>
-      <div className="grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4">
+    <div className="container-luxe page">
+      <h1 className="page__title page__title--mb">Your Wishlist</h1>
+      <div className="product-grid">
         {saved.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
@@ -45,3 +43,4 @@ function Wishlist() {
     </div>
   );
 }
+

@@ -37,14 +37,13 @@ function Checkout() {
 
   if (placed) {
     return (
-      <div className="container-luxe py-24 text-center">
-        <CheckCircle2 className="mx-auto size-14 text-gold" />
-        <h1 className="mt-6 font-serif text-4xl">Thank you for your order</h1>
-        <p className="mt-3 text-muted-foreground">
-          Your pieces are being lovingly prepared. We'll email tracking details
-          shortly.
+      <div className="container-luxe state">
+        <CheckCircle2 className="gold" style={{ margin: "0 auto", width: "3.5rem", height: "3.5rem" }} />
+        <h1 className="state__title">Thank you for your order</h1>
+        <p className="state__text">
+          Your pieces are being lovingly prepared. We'll email tracking details shortly.
         </p>
-        <Button asChild variant="luxe" size="lg" className="mt-8">
+        <Button asChild variant="luxe" size="lg" style={{ marginTop: "2rem" }}>
           <Link to="/shop">Continue shopping</Link>
         </Button>
       </div>
@@ -53,9 +52,9 @@ function Checkout() {
 
   if (cart.length === 0) {
     return (
-      <div className="container-luxe py-24 text-center">
-        <h1 className="font-serif text-4xl">Your bag is empty</h1>
-        <Button asChild variant="luxe" size="lg" className="mt-8">
+      <div className="container-luxe state">
+        <h1 className="state__title">Your bag is empty</h1>
+        <Button asChild variant="luxe" size="lg" style={{ marginTop: "2rem" }}>
           <Link to="/shop">Explore the collection</Link>
         </Button>
       </div>
@@ -63,27 +62,27 @@ function Checkout() {
   }
 
   return (
-    <div className="container-luxe py-12">
-      <h1 className="mb-10 font-serif text-4xl md:text-5xl">Checkout</h1>
+    <div className="container-luxe page">
+      <h1 className="page__title page__title--mb">Checkout</h1>
 
-      <form onSubmit={handleSubmit} className="grid gap-12 lg:grid-cols-[1fr_360px]">
-        <div className="space-y-10">
+      <form onSubmit={handleSubmit} className="checkout-form split-layout">
+        <div className="checkout__col">
           {/* Contact */}
           <section>
-            <h2 className="font-serif text-2xl">Contact Information</h2>
-            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <h2 className="checkout-section__title">Contact Information</h2>
+            <div className="form-grid form-grid--2">
               <Field id="firstName" label="First name" required />
               <Field id="lastName" label="Last name" required />
-              <Field id="email" label="Email" type="email" required className="sm:col-span-2" />
-              <Field id="phone" label="Phone" type="tel" required className="sm:col-span-2" />
+              <Field id="email" label="Email" type="email" required className="col-span-2" />
+              <Field id="phone" label="Phone" type="tel" required className="col-span-2" />
             </div>
           </section>
 
           {/* Delivery */}
           <section>
-            <h2 className="font-serif text-2xl">Delivery Address</h2>
-            <div className="mt-5 grid gap-4 sm:grid-cols-2">
-              <Field id="address" label="Street address" required className="sm:col-span-2" />
+            <h2 className="checkout-section__title">Delivery Address</h2>
+            <div className="form-grid form-grid--2">
+              <Field id="address" label="Street address" required className="col-span-2" />
               <Field id="suburb" label="Suburb" required />
               <Field id="city" label="City" required />
               <Field id="province" label="Province" required />
@@ -93,22 +92,22 @@ function Checkout() {
 
           {/* Payment */}
           <section>
-            <div className="flex items-center justify-between">
-              <h2 className="font-serif text-2xl">Payment</h2>
-              <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                <Lock className="size-3.5" /> Secured
+            <div className="payment-head">
+              <h2 className="checkout-section__title">Payment</h2>
+              <span className="payment-secured">
+                <Lock /> Secured
               </span>
             </div>
-            <div className="mt-5 rounded-sm border border-border bg-card p-5">
-              <div className="flex items-center gap-2 text-sm font-medium">
-                <CreditCard className="size-4 text-gold" /> Card / PayFast
+            <div className="payment-card">
+              <div className="payment-card__head">
+                <CreditCard /> Card / PayFast
               </div>
-              <p className="mt-2 text-xs text-muted-foreground">
-                Secure payment processing will be enabled here once your payment
-                gateway (such as PayFast) is connected.
+              <p className="payment-card__note">
+                Secure payment processing will be enabled here once your payment gateway (such as
+                PayFast) is connected.
               </p>
-              <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                <Field id="card" label="Card number" placeholder="•••• •••• •••• ••••" className="sm:col-span-2" />
+              <div className="form-grid form-grid--2">
+                <Field id="card" label="Card number" placeholder="•••• •••• •••• ••••" className="col-span-2" />
                 <Field id="expiry" label="Expiry" placeholder="MM / YY" />
                 <Field id="cvc" label="CVC" placeholder="•••" />
               </div>
@@ -116,23 +115,16 @@ function Checkout() {
           </section>
         </div>
 
-        <aside className="h-fit rounded-sm border border-border bg-card p-6 lg:sticky lg:top-24">
-          <h2 className="font-serif text-2xl">Order Summary</h2>
-          <Separator className="my-5" />
-          <ul className="space-y-4">
+        <aside className="summary summary--sticky">
+          <h2 className="summary__title">Order Summary</h2>
+          <Separator />
+          <ul className="summary__items">
             {cart.map((item) => (
-              <li
-                key={`${item.product.id}-${item.size ?? ""}`}
-                className="flex gap-3 text-sm"
-              >
-                <img
-                  src={item.product.image}
-                  alt={item.product.name}
-                  className="size-14 rounded-sm object-cover"
-                />
-                <div className="flex-1">
-                  <p className="leading-tight">{item.product.name}</p>
-                  <p className="text-xs text-muted-foreground">
+              <li key={`${item.product.id}-${item.size ?? ""}`} className="summary__item">
+                <img src={item.product.image} alt={item.product.name} />
+                <div className="summary__item-body">
+                  <p style={{ lineHeight: 1.2 }}>{item.product.name}</p>
+                  <p className="cart-item__sub" style={{ fontSize: "0.75rem" }}>
                     Qty {item.quantity}
                     {item.size && ` · Size ${item.size}`}
                   </p>
@@ -141,23 +133,23 @@ function Checkout() {
               </li>
             ))}
           </ul>
-          <Separator className="my-5" />
-          <dl className="space-y-3 text-sm">
-            <div className="flex justify-between">
-              <dt className="text-muted-foreground">Subtotal</dt>
+          <Separator />
+          <dl className="summary__rows">
+            <div className="summary__row">
+              <dt className="muted">Subtotal</dt>
               <dd>{formatPrice(subtotal)}</dd>
             </div>
-            <div className="flex justify-between">
-              <dt className="text-muted-foreground">Shipping</dt>
-              <dd className="text-gold">Free</dd>
+            <div className="summary__row">
+              <dt className="muted">Shipping</dt>
+              <dd className="gold">Free</dd>
             </div>
           </dl>
-          <Separator className="my-5" />
-          <div className="flex justify-between text-lg font-medium">
+          <Separator />
+          <div className="summary__total">
             <span>Total</span>
             <span>{formatPrice(subtotal)}</span>
           </div>
-          <Button type="submit" variant="gold" size="xl" className="mt-6 w-full">
+          <Button type="submit" variant="gold" size="xl" className="btn--block" style={{ marginTop: "1.5rem" }}>
             <Lock /> Place Order
           </Button>
         </aside>
@@ -182,17 +174,12 @@ function Field({
   className?: string;
 }) {
   return (
-    <div className={className}>
-      <Label htmlFor={id} className="text-xs uppercase tracking-[0.08em] text-muted-foreground">
+    <div className={["field", className].filter(Boolean).join(" ")}>
+      <Label htmlFor={id} className="field__label">
         {label}
       </Label>
-      <Input
-        id={id}
-        type={type}
-        required={required}
-        placeholder={placeholder}
-        className="mt-1.5"
-      />
+      <Input id={id} type={type} required={required} placeholder={placeholder} />
     </div>
   );
 }
+

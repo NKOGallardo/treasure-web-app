@@ -22,13 +22,11 @@ function Cart() {
 
   if (cart.length === 0) {
     return (
-      <div className="container-luxe py-24 text-center">
-        <ShoppingBag className="mx-auto size-12 text-muted-foreground" />
-        <h1 className="mt-6 font-serif text-4xl">Your bag is empty</h1>
-        <p className="mt-3 text-muted-foreground">
-          Discover pieces worthy of your collection.
-        </p>
-        <Button asChild variant="luxe" size="lg" className="mt-8">
+      <div className="container-luxe state">
+        <ShoppingBag className="state__icon" style={{ width: "3rem", height: "3rem" }} />
+        <h1 className="state__title">Your bag is empty</h1>
+        <p className="state__text">Discover pieces worthy of your collection.</p>
+        <Button asChild variant="luxe" size="lg" style={{ marginTop: "2rem" }}>
           <Link to="/shop">Explore the collection</Link>
         </Button>
       </div>
@@ -36,77 +34,62 @@ function Cart() {
   }
 
   return (
-    <div className="container-luxe py-12">
-      <h1 className="mb-10 font-serif text-4xl md:text-5xl">Your Bag</h1>
+    <div className="container-luxe page">
+      <h1 className="page__title page__title--mb">Your Bag</h1>
 
-      <div className="grid gap-12 lg:grid-cols-[1fr_360px]">
-        <div className="divide-y divide-border">
+      <div className="split-layout">
+        <div className="cart-list">
           {cart.map((item) => (
-            <div
-              key={`${item.product.id}-${item.size ?? ""}`}
-              className="flex gap-4 py-6 first:pt-0"
-            >
-              <Link
-                to="/products/$id"
-                params={{ id: item.product.id }}
-                className="shrink-0"
-              >
-                <img
-                  src={item.product.image}
-                  alt={item.product.name}
-                  className="size-28 rounded-sm object-cover md:size-32"
-                />
+            <div key={`${item.product.id}-${item.size ?? ""}`} className="cart-item">
+              <Link to="/products/$id" params={{ id: item.product.id }} style={{ flexShrink: 0 }}>
+                <img src={item.product.image} alt={item.product.name} className="cart-item__img" />
               </Link>
 
-              <div className="flex flex-1 flex-col">
-                <div className="flex justify-between gap-4">
+              <div className="cart-item__body">
+                <div className="cart-item__top">
                   <div>
-                    <p className="eyebrow text-muted-foreground">
-                      {item.product.category}
-                    </p>
+                    <p className="eyebrow muted">{item.product.category}</p>
                     <Link
                       to="/products/$id"
                       params={{ id: item.product.id }}
-                      className="font-serif text-lg transition-colors hover:text-gold"
+                      className="cart-item__name"
                     >
                       {item.product.name}
                     </Link>
-                    {item.size && (
-                      <p className="text-sm text-muted-foreground">Size: {item.size}</p>
-                    )}
+                    {item.size && <p className="cart-item__sub">Size: {item.size}</p>}
                   </div>
-                  <p className="font-medium">
+                  <p className="cart-item__line">
                     {formatPrice(item.product.price * item.quantity)}
                   </p>
                 </div>
 
-                <div className="mt-auto flex items-center justify-between pt-4">
-                  <div className="inline-flex items-center rounded-sm border border-border">
+                <div className="cart-item__controls">
+                  <div className="qty-control">
                     <button
                       onClick={() =>
                         updateQuantity(item.product.id, item.quantity - 1, item.size)
                       }
-                      className="flex size-9 items-center justify-center transition-colors hover:bg-accent"
+                      className="qty-btn"
                       aria-label="Decrease quantity"
                     >
-                      <Minus className="size-3.5" />
+                      <Minus />
                     </button>
-                    <span className="w-10 text-center text-sm">{item.quantity}</span>
+                    <span className="qty-value">{item.quantity}</span>
                     <button
                       onClick={() =>
                         updateQuantity(item.product.id, item.quantity + 1, item.size)
                       }
-                      className="flex size-9 items-center justify-center transition-colors hover:bg-accent"
+                      className="qty-btn"
                       aria-label="Increase quantity"
                     >
-                      <Plus className="size-3.5" />
+                      <Plus />
                     </button>
                   </div>
                   <button
                     onClick={() => removeFromCart(item.product.id, item.size)}
-                    className="flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-destructive"
+                    className="remove-btn"
                   >
-                    <Trash2 className="size-3.5" /> Remove
+                    <Trash2 /> Remove
                   </button>
                 </div>
               </div>
@@ -114,30 +97,30 @@ function Cart() {
           ))}
         </div>
 
-        <aside className="h-fit rounded-sm border border-border bg-card p-6 lg:sticky lg:top-24">
-          <h2 className="font-serif text-2xl">Order Summary</h2>
-          <Separator className="my-5" />
-          <dl className="space-y-3 text-sm">
-            <div className="flex justify-between">
-              <dt className="text-muted-foreground">Subtotal</dt>
+        <aside className="summary summary--sticky">
+          <h2 className="summary__title">Order Summary</h2>
+          <Separator />
+          <dl className="summary__rows">
+            <div className="summary__row">
+              <dt className="muted">Subtotal</dt>
               <dd>{formatPrice(subtotal)}</dd>
             </div>
-            <div className="flex justify-between">
-              <dt className="text-muted-foreground">Shipping</dt>
-              <dd className="text-gold">Free</dd>
+            <div className="summary__row">
+              <dt className="muted">Shipping</dt>
+              <dd className="gold">Free</dd>
             </div>
           </dl>
-          <Separator className="my-5" />
-          <div className="flex justify-between text-lg font-medium">
+          <Separator />
+          <div className="summary__total">
             <span>Total</span>
             <span>{formatPrice(total)}</span>
           </div>
-          <Button asChild variant="gold" size="xl" className="mt-6 w-full">
+          <Button asChild variant="gold" size="xl" className="btn--block" style={{ marginTop: "1.5rem" }}>
             <Link to="/checkout">
               Checkout <ArrowRight />
             </Link>
           </Button>
-          <Button asChild variant="link" className="mt-2 w-full">
+          <Button asChild variant="link" className="btn--block" style={{ marginTop: "0.5rem" }}>
             <Link to="/shop">Continue shopping</Link>
           </Button>
         </aside>
@@ -145,3 +128,4 @@ function Cart() {
     </div>
   );
 }
+
