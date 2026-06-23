@@ -25,8 +25,8 @@ export function Footer() {
         <div>
           <h3 className="footer__brand-title">oneof1custom</h3>
           <p className="footer__lead">
-            Fine jewellery handcrafted for life's most precious moments. Ethically sourced, made
-            to last generations.
+            Handmade bead jewellery crafted for your everyday moments. Chosen beads, made to be
+            unique.
           </p>
           <div className="footer__socials">
             {[Instagram, Facebook, Twitter].map((Icon, i) => (
