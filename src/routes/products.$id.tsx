@@ -37,10 +37,10 @@ export const Route = createFileRoute("/products/$id")({
 
 function ProductNotFound() {
   return (
-    <div className="container-luxe state" style={{ padding: "8rem 0" }}>
+    <div className="container-luxe state state--lg">
       <h1 className="state__title">Piece not found</h1>
       <p className="state__text">This item may have sold out or moved.</p>
-      <Button asChild variant="luxe" style={{ marginTop: "2rem" }}>
+      <Button asChild variant="luxe" className="mt-xl">
         <Link to="/shop">Back to shop</Link>
       </Button>
     </div>
@@ -87,7 +87,7 @@ function ProductDetail() {
         <div className="pdp__info">
           <p className="eyebrow gold">{product.category}</p>
           <h1 className="pdp__title">{product.name}</h1>
-          <div style={{ marginTop: "1rem" }}>
+          <div className="mt-md">
             <StarRating rating={product.rating} reviews={product.reviews} size="md" />
           </div>
           <p className="pdp__price">{formatPrice(product.price)}</p>
@@ -95,15 +95,15 @@ function ProductDetail() {
           <p className="pdp__desc">{product.description}</p>
 
           <div className="pdp__materials">
-            <p className="eyebrow muted" style={{ marginBottom: "0.25rem" }}>
+            <p className="eyebrow muted pdp__materials-label">
               Materials
             </p>
-            <p style={{ fontSize: "0.875rem" }}>{product.material}</p>
+            <p className="pdp__materials-value">{product.material}</p>
           </div>
 
           {product.sizes && (
             <div className="pdp__block">
-              <p className="eyebrow" style={{ marginBottom: "0.75rem" }}>
+              <p className="eyebrow field-eyebrow">
                 Select Size
               </p>
               <div className="size-row">
@@ -121,7 +121,7 @@ function ProductDetail() {
           )}
 
           <div className="pdp__block">
-            <p className="eyebrow" style={{ marginBottom: "0.75rem" }}>
+            <p className="eyebrow field-eyebrow">
               Quantity
             </p>
             <div className="qty-control qty-control--lg">
@@ -160,7 +160,7 @@ function ProductDetail() {
             <Button
               variant="outlineLuxe"
               size="icon"
-              style={{ width: "3rem", height: "3rem" }}
+              className="btn--icon-lg"
               onClick={() => toggleWishlist(product.id)}
               aria-label="Toggle wishlist"
             >

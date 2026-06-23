@@ -40,7 +40,7 @@ export function QuickViewDialog({
 
             {product.sizes && (
               <div className="pdp__block">
-                <p className="eyebrow" style={{ marginBottom: "0.5rem" }}>
+                <p className="eyebrow field-eyebrow">
                   Size
                 </p>
                 <div className="size-row">

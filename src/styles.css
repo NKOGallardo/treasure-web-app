@@ -206,6 +206,27 @@ svg {
   color: transparent;
 }
 
+/* Spacing utilities — small, consistent steps */
+.mt-sm {
+  margin-top: 0.5rem;
+}
+.mt-md {
+  margin-top: 1rem;
+}
+.mt-lg {
+  margin-top: 1.5rem;
+}
+.mt-xl {
+  margin-top: 2rem;
+}
+
+/* Icon size utilities */
+.icon-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -367,6 +388,10 @@ svg {
   height: 2.25rem;
   width: 2.25rem;
   padding: 0;
+}
+.btn--icon-lg {
+  height: 3rem;
+  width: 3rem;
 }
 
 .btn--block {
@@ -701,15 +726,27 @@ svg {
   color: var(--primary-foreground);
 }
 
-
 .state {
   padding: 6rem 0;
   text-align: center;
 }
+.state--lg {
+  padding: 8rem 0;
+}
 .state__icon {
   margin: 0 auto;
+  width: 3rem;
+  height: 3rem;
   color: var(--muted-foreground);
 }
+.state__icon--lg {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+.state__icon--gold {
+  color: var(--gold);
+}
+
 .state__title {
   margin-top: 1.5rem;
   font-size: 2.25rem;
@@ -775,7 +812,7 @@ svg {
   border-radius: 9999px;
   background-color: var(--gold);
   color: var(--gold-foreground);
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 600;
 }
 .icon-link {
@@ -797,11 +834,19 @@ svg {
 .menu-trigger {
   display: inline-flex;
 }
+.sheet-brand-title {
+  font-size: 1.5rem;
+  letter-spacing: 0.2em;
+}
 .sheet-nav {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+}
+.sheet-nav__label {
+  margin-bottom: 0.5rem;
+  padding-inline: 0.75rem;
 }
 .mobile-item {
   border-radius: var(--radius);
@@ -838,7 +883,6 @@ svg {
   color: var(--primary-foreground);
 }
 .footer__grid {
-  margin: 20px;
   display: grid;
   gap: 3rem;
   padding: 4rem 0;
@@ -995,7 +1039,6 @@ svg {
   background-color: var(--card);
 }
 .trust-bar__grid {
-  margin: 20px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
@@ -1072,7 +1115,6 @@ svg {
   inset-inline: 0;
   bottom: 0;
   padding: 0.75rem;
-  color: var(--primary-foreground);
   color: oklch(0.97 0.01 85);
 }
 .category-card__name {
@@ -1080,7 +1122,7 @@ svg {
   font-size: 1.125rem;
 }
 .category-card__blurb {
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: oklch(0.97 0.01 85 / 0.7);
 }
 
@@ -1120,6 +1162,9 @@ svg {
   margin-top: 1.25rem;
   color: var(--muted-foreground);
 }
+.atelier__cta {
+  margin-top: 1.75rem;
+}
 
 .testimonials {
   background: var(--gradient-dark);
@@ -1137,7 +1182,7 @@ svg {
   padding: 2rem;
 }
 .testimonial-card blockquote {
-  margin: 1rem 0 0;
+  margin-top: 1rem;
   font-family: var(--font-serif);
   font-size: 1.125rem;
   line-height: 1.6;
@@ -1145,6 +1190,9 @@ svg {
 .testimonial-card figcaption {
   margin-top: 1.5rem;
   font-size: 0.875rem;
+}
+.testimonial-card figcaption .name {
+  font-weight: 500;
 }
 .testimonial-card figcaption .loc {
   color: color-mix(in oklch, var(--primary-foreground) 60%, transparent);
@@ -1353,6 +1401,12 @@ svg {
   color: var(--foreground);
   font-weight: 400;
 }
+.shop__header {
+  margin-bottom: 2.5rem;
+}
+.shop__count {
+  font-size: 0.875rem;
+}
 .shop__toolbar {
   margin-bottom: 1.5rem;
   display: flex;
@@ -1395,6 +1449,9 @@ svg {
 .cart-item:first-child {
   border-top: 0;
   padding-top: 0;
+}
+.cart-item__media {
+  flex-shrink: 0;
 }
 .cart-item__img {
   width: 7rem;
@@ -1536,6 +1593,13 @@ svg {
 .summary__item-body {
   flex: 1;
 }
+.summary__item-name {
+  line-height: 1.2;
+}
+.summary__item-qty {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
 
 /* ----------------------------------------------------------------- Checkout */
 .checkout-form {
@@ -1652,8 +1716,17 @@ svg {
   background-color: var(--card);
   padding: 1rem;
 }
+.pdp__materials-label {
+  margin-bottom: 0.25rem;
+}
+.pdp__materials-value {
+  font-size: 0.875rem;
+}
 .pdp__block {
   margin-top: 1.5rem;
+}
+.field-eyebrow {
+  margin-bottom: 0.75rem;
 }
 .size-row {
   display: flex;
@@ -1842,7 +1915,6 @@ svg {
     display: none;
   }
   .footer__grid {
-    margin: 20px;
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   .footer__bottom-inner {

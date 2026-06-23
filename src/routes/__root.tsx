@@ -26,7 +26,7 @@ function NotFoundComponent() {
         <p className="fallback__text">
           The page you're looking for doesn't exist or has been moved.
         </p>
-        <div style={{ marginTop: "1.5rem" }}>
+        <div className="mt-lg">
           <Link to="/" className="btn btn--luxe">
             Go home
           </Link>
