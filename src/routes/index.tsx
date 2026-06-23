@@ -173,7 +173,7 @@ function Home() {
               around you.
             </p>
             <Button asChild variant="luxe" size="lg" style={{ marginTop: "1.75rem" }}>
-              <Link to="/shop" search={{ category: "Custom" }}>
+              <Link to="/shop">
                 Start your custom design
               </Link>
             </Button>
