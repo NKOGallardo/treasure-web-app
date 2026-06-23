@@ -52,8 +52,8 @@ export function Navbar() {
               <Link to="/shop" className="mobile-item">
                 Shop
               </Link>
-              <Link to="/shop" search={{ category: "Custom" }} className="mobile-item">
-                Custom
+              <Link to="/shop" search={{ category: "Bracelets" }} className="mobile-item">
+                Bracelets
               </Link>
               <Link to="/wishlist" className="mobile-item">
                 Wishlist
