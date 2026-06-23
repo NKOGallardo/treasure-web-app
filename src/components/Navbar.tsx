@@ -88,8 +88,8 @@ export function Navbar() {
           <Link to="/shop" className="nav-link" activeProps={{ className: "nav-link is-active" }}>
             Shop
           </Link>
-          <Link to="/shop" search={{ category: "Custom" }} className="nav-link">
-            Custom
+          <Link to="/shop" search={{ category: "Bracelets" }} className="nav-link">
+            Bracelets
           </Link>
           <Link
             to="/wishlist"
