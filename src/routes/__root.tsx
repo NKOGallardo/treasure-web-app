@@ -75,17 +75,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "oneof1custom — Fine Jewellery Handcrafted in South Africa" },
+      { title: "oneof1custom — Handmade Bead Jewellery" },
       {
         name: "description",
         content:
-          "Discover oneof1custom fine jewellery — ethically sourced diamond rings, necklaces, earrings and bespoke pieces handcrafted for life's most precious moments.",
+          "Discover oneof1custom handmade bead jewellery — hand-wrapped rings, beaded bracelets and unique pieces crafted for your everyday style.",
       },
       { name: "author", content: "oneof1custom" },
-      { property: "og:title", content: "oneof1custom — Fine Jewellery" },
+      { property: "og:title", content: "oneof1custom — Handmade Bead Jewellery" },
       {
         property: "og:description",
-        content: "Ethically sourced diamond jewellery, handcrafted in South Africa.",
+        content: "Handmade bead jewellery crafted with chosen beads in South Africa.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
