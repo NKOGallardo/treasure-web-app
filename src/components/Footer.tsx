@@ -87,7 +87,7 @@ export function Footer() {
 
       <div className="footer__bottom">
         <div className="container-luxe footer__bottom-inner">
-          <p>© {new Date().getFullYear()} oneof1custom Fine Jewellery. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} oneof1custom. All rights reserved.</p>
           <p>Crafted in South Africa · Secure checkout</p>
         </div>
       </div>
