@@ -29,19 +29,19 @@ export const Route = createFileRoute("/")({
 const testimonials = [
   {
     quote:
-      "The craftsmanship is extraordinary. My engagement ring exceeded every expectation — it sparkles like nothing I've ever seen.",
+      "The craftsmanship is extraordinary. My bracelet exceeded every expectation — the colours are like nothing I've ever seen.",
     name: "Naledi M.",
     location: "Cape Town",
   },
   {
     quote:
-      "From the first sketch to the final piece, the oneof1custom atelier made the whole experience feel deeply personal and luxurious.",
+      "From the first sketch to the final piece, the oneof1custom studio made the whole experience feel deeply personal.",
     name: "James & Priya",
     location: "Johannesburg",
   },
   {
     quote:
-      "Impeccable service and a truly timeless necklace. It has become the piece I reach for every single day.",
+      "Impeccable service and a truly timeless bracelet. It has become the piece I reach for every single day.",
     name: "Sophia L.",
     location: "Durban",
   },
