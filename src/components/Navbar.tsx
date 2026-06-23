@@ -41,7 +41,7 @@ export function Navbar() {
           </SheetTrigger>
           <SheetContent side="left" className="sheet-width">
             <SheetHeader>
-              <SheetTitle className="serif" style={{ fontSize: "1.5rem", letterSpacing: "0.2em" }}>
+              <SheetTitle className="serif sheet-brand-title">
                 oneof1custom
               </SheetTitle>
             </SheetHeader>
@@ -59,7 +59,7 @@ export function Navbar() {
                 Wishlist
               </Link>
               <div className="sheet-nav__group">
-                <p className="eyebrow muted" style={{ marginBottom: "0.5rem", paddingInline: "0.75rem" }}>
+                <p className="eyebrow muted sheet-nav__label">
                   Collections
                 </p>
                 {categories.map((c) => (
@@ -130,7 +130,7 @@ export function Navbar() {
       {searchOpen && (
         <div className="navbar__search animate-fade-up">
           <form onSubmit={submitSearch} className="container-luxe search-form">
-            <Search className="muted" style={{ width: "1rem", height: "1rem" }} />
+            <Search className="muted icon-sm" />
             <Input
               autoFocus
               value={query}

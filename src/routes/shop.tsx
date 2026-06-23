@@ -113,7 +113,7 @@ function Shop() {
         <span className="breadcrumb__current">Shop</span>
       </nav>
 
-      <header style={{ marginBottom: "2.5rem" }}>
+      <header className="shop__header">
         <h1 className="page__title">
           {activeCategory === "All" ? "All Pieces" : activeCategory}
         </h1>
@@ -170,7 +170,7 @@ function Shop() {
         {/* Grid */}
         <div>
           <div className="shop__toolbar">
-            <p className="muted" style={{ fontSize: "0.875rem" }}>
+            <p className="muted shop__count">
               {filtered.length} {filtered.length === 1 ? "piece" : "pieces"}
             </p>
             <Select value={sort} onValueChange={(v) => setSearch({ sort: v as SortKey })}>
@@ -195,7 +195,7 @@ function Shop() {
               </p>
               <Button
                 variant="luxe"
-                style={{ marginTop: "1.5rem" }}
+                className="mt-lg"
                 onClick={() => navigate({ search: {} })}
               >
                 View all jewellery

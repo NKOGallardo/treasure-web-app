@@ -23,10 +23,10 @@ function Cart() {
   if (cart.length === 0) {
     return (
       <div className="container-luxe state">
-        <ShoppingBag className="state__icon" style={{ width: "3rem", height: "3rem" }} />
+        <ShoppingBag className="state__icon" />
         <h1 className="state__title">Your bag is empty</h1>
         <p className="state__text">Discover pieces worthy of your collection.</p>
-        <Button asChild variant="luxe" size="lg" style={{ marginTop: "2rem" }}>
+        <Button asChild variant="luxe" size="lg" className="mt-xl">
           <Link to="/shop">Explore the collection</Link>
         </Button>
       </div>
@@ -41,7 +41,7 @@ function Cart() {
         <div className="cart-list">
           {cart.map((item) => (
             <div key={`${item.product.id}-${item.size ?? ""}`} className="cart-item">
-              <Link to="/products/$id" params={{ id: item.product.id }} style={{ flexShrink: 0 }}>
+              <Link to="/products/$id" params={{ id: item.product.id }} className="cart-item__media">
                 <img src={item.product.image} alt={item.product.name} className="cart-item__img" />
               </Link>
 
@@ -115,12 +115,12 @@ function Cart() {
             <span>Total</span>
             <span>{formatPrice(total)}</span>
           </div>
-          <Button asChild variant="gold" size="xl" className="btn--block" style={{ marginTop: "1.5rem" }}>
+          <Button asChild variant="gold" size="xl" className="btn--block mt-lg">
             <Link to="/checkout">
               Checkout <ArrowRight />
             </Link>
           </Button>
-          <Button asChild variant="link" className="btn--block" style={{ marginTop: "0.5rem" }}>
+          <Button asChild variant="link" className="btn--block mt-sm">
             <Link to="/shop">Continue shopping</Link>
           </Button>
         </aside>

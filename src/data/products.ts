@@ -1,9 +1,8 @@
 import lavenderRing from "@/assets/Lavender.jpeg";
 import amethystRing from "@/assets/Cat-eye.jpeg";
-import pearlBracelet from "@/assets/crystal-bracelet.jpeg";
 import lavenderBracelet from "@/assets/Lavender.jpeg";
 import tigerEyeBracelet from "@/assets/bracelet-tigereye.jpeg";
-import pearlcomboBracelet from "@/assets/pearl-combo.jpeg";
+import pearlcomboBracelet from "@/assets/Pearl-combo.jpeg";
 
 export type Category = "Rings" | "Bracelets";
 

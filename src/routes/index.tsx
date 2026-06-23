@@ -171,7 +171,7 @@ function Home() {
               Work with us to design a one-of-a-kind creation. From choosing the perfect bead to
               the final wrap, every detail is shaped around you.
             </p>
-            <Button asChild variant="luxe" size="lg" style={{ marginTop: "1.75rem" }}>
+            <Button asChild variant="luxe" size="lg" className="atelier__cta">
               <Link to="/shop">
                 Start your custom design
               </Link>
@@ -208,7 +208,7 @@ function Home() {
                 <StarRating rating={5} size="md" />
                 <blockquote>"{t.quote}"</blockquote>
                 <figcaption>
-                  <span style={{ fontWeight: 500 }}>{t.name}</span>
+                  <span className="name">{t.name}</span>
                   <span className="loc"> · {t.location}</span>
                 </figcaption>
               </figure>

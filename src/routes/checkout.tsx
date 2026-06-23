@@ -38,12 +38,12 @@ function Checkout() {
   if (placed) {
     return (
       <div className="container-luxe state">
-        <CheckCircle2 className="gold" style={{ margin: "0 auto", width: "3.5rem", height: "3.5rem" }} />
+        <CheckCircle2 className="state__icon state__icon--lg state__icon--gold" />
         <h1 className="state__title">Thank you for your order</h1>
         <p className="state__text">
           Your pieces are being lovingly prepared. We'll email tracking details shortly.
         </p>
-        <Button asChild variant="luxe" size="lg" style={{ marginTop: "2rem" }}>
+        <Button asChild variant="luxe" size="lg" className="mt-xl">
           <Link to="/shop">Continue shopping</Link>
         </Button>
       </div>
@@ -54,7 +54,7 @@ function Checkout() {
     return (
       <div className="container-luxe state">
         <h1 className="state__title">Your bag is empty</h1>
-        <Button asChild variant="luxe" size="lg" style={{ marginTop: "2rem" }}>
+        <Button asChild variant="luxe" size="lg" className="mt-xl">
           <Link to="/shop">Explore the collection</Link>
         </Button>
       </div>
@@ -123,8 +123,8 @@ function Checkout() {
               <li key={`${item.product.id}-${item.size ?? ""}`} className="summary__item">
                 <img src={item.product.image} alt={item.product.name} />
                 <div className="summary__item-body">
-                  <p style={{ lineHeight: 1.2 }}>{item.product.name}</p>
-                  <p className="cart-item__sub" style={{ fontSize: "0.75rem" }}>
+                  <p className="summary__item-name">{item.product.name}</p>
+                  <p className="summary__item-qty">
                     Qty {item.quantity}
                     {item.size && ` · Size ${item.size}`}
                   </p>
@@ -149,7 +149,7 @@ function Checkout() {
             <span>Total</span>
             <span>{formatPrice(subtotal)}</span>
           </div>
-          <Button type="submit" variant="gold" size="xl" className="btn--block" style={{ marginTop: "1.5rem" }}>
+          <Button type="submit" variant="gold" size="xl" className="btn--block mt-lg">
             <Lock /> Place Order
           </Button>
         </aside>
