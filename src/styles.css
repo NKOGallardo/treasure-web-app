@@ -885,7 +885,7 @@ svg {
 .footer__grid {
   display: grid;
   gap: 3rem;
-  padding: 4rem 0;
+  padding-block: 4rem;
 }
 .footer__lead {
   margin-top: 1rem;
