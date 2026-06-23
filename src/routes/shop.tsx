@@ -33,13 +33,13 @@ export const Route = createFileRoute("/shop")({
   }),
   head: () => ({
     meta: [
-      { title: "Shop Fine Jewellery — AURÉLIE" },
+      { title: "Shop Fine Jewellery — oneof1custom" },
       {
         name: "description",
         content:
-          "Browse the full AURÉLIE collection of diamond rings, necklaces, earrings, bracelets, watches and bespoke jewellery. Filter by category, price and style.",
+          "Browse the full oneof1custom collection of diamond rings, necklaces, earrings, bracelets, watches and bespoke jewellery. Filter by category, price and style.",
       },
-      { property: "og:title", content: "Shop Fine Jewellery — AURÉLIE" },
+      { property: "og:title", content: "Shop Fine Jewellery — oneof1custom" },
       {
         property: "og:description",
         content: "Browse diamond rings, necklaces, earrings and bespoke jewellery.",

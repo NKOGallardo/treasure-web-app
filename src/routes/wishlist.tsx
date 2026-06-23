@@ -8,8 +8,8 @@ import { products } from "@/data/products";
 export const Route = createFileRoute("/wishlist")({
   head: () => ({
     meta: [
-      { title: "Wishlist — AURÉLIE" },
-      { name: "description", content: "Your saved AURÉLIE pieces." },
+      { title: "Wishlist — oneof1custom" },
+      { name: "description", content: "Your saved oneof1custom pieces." },
     ],
   }),
   component: Wishlist,

@@ -12,8 +12,8 @@ import { formatPrice } from "@/data/products";
 export const Route = createFileRoute("/checkout")({
   head: () => ({
     meta: [
-      { title: "Checkout — AURÉLIE" },
-      { name: "description", content: "Securely complete your AURÉLIE order." },
+      { title: "Checkout — oneof1custom" },
+      { name: "description", content: "Securely complete your oneof1custom order." },
     ],
   }),
   component: Checkout,

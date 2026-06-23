@@ -20,14 +20,14 @@ export const Route = createFileRoute("/products/$id")({
     return {
       meta: p
         ? [
-            { title: `${p.name} — AURÉLIE` },
+            { title: `${p.name} — oneof1custom` },
             { name: "description", content: p.description },
-            { property: "og:title", content: `${p.name} — AURÉLIE` },
+            { property: "og:title", content: `${p.name} — oneof1custom` },
             { property: "og:description", content: p.description },
             { property: "og:image", content: p.image },
             { name: "twitter:image", content: p.image },
           ]
-        : [{ title: "Product — AURÉLIE" }],
+        : [{ title: "Product — oneof1custom" }],
     };
   },
   notFoundComponent: ProductNotFound,

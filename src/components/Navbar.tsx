@@ -42,7 +42,7 @@ export function Navbar() {
           <SheetContent side="left" className="sheet-width">
             <SheetHeader>
               <SheetTitle className="serif" style={{ fontSize: "1.5rem", letterSpacing: "0.2em" }}>
-                AURÉLIE
+                oneof1custom
               </SheetTitle>
             </SheetHeader>
             <nav className="sheet-nav">
@@ -78,7 +78,7 @@ export function Navbar() {
         </Sheet>
 
         <Link to="/" className="navbar__brand">
-          AURÉLIE
+          oneof1custom
         </Link>
 
         <nav className="navbar__nav">

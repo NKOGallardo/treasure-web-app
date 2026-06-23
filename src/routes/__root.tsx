@@ -75,14 +75,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AURÉLIE — Fine Jewellery Handcrafted in South Africa" },
+      { title: "oneof1custom — Fine Jewellery Handcrafted in South Africa" },
       {
         name: "description",
         content:
-          "Discover AURÉLIE fine jewellery — ethically sourced diamond rings, necklaces, earrings and bespoke pieces handcrafted for life's most precious moments.",
+          "Discover oneof1custom fine jewellery — ethically sourced diamond rings, necklaces, earrings and bespoke pieces handcrafted for life's most precious moments.",
       },
-      { name: "author", content: "AURÉLIE" },
-      { property: "og:title", content: "AURÉLIE — Fine Jewellery" },
+      { name: "author", content: "oneof1custom" },
+      { property: "og:title", content: "oneof1custom — Fine Jewellery" },
       {
         property: "og:description",
         content: "Ethically sourced diamond jewellery, handcrafted in South Africa.",

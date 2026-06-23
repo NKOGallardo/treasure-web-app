@@ -10,13 +10,13 @@ import atelierImg from "@/assets/atelier.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AURÉLIE — Fine Jewellery Handcrafted in South Africa" },
+      { title: "oneof1custom — Fine Jewellery Handcrafted in South Africa" },
       {
         name: "description",
         content:
-          "Explore AURÉLIE's collection of ethically sourced diamond rings, necklaces, earrings and bespoke fine jewellery, handcrafted for life's most precious moments.",
+          "Explore oneof1custom's collection of ethically sourced diamond rings, necklaces, earrings and bespoke fine jewellery, handcrafted for life's most precious moments.",
       },
-      { property: "og:title", content: "AURÉLIE — Fine Jewellery" },
+      { property: "og:title", content: "oneof1custom — Fine Jewellery" },
       {
         property: "og:description",
         content: "Ethically sourced diamond jewellery, handcrafted in South Africa.",
@@ -35,7 +35,7 @@ const testimonials = [
   },
   {
     quote:
-      "From the first sketch to the final piece, the AURÉLIE atelier made the whole experience feel deeply personal and luxurious.",
+      "From the first sketch to the final piece, the oneof1custom atelier made the whole experience feel deeply personal and luxurious.",
     name: "James & Priya",
     location: "Johannesburg",
   },
@@ -160,7 +160,7 @@ function Home() {
         <div className="container-luxe atelier__inner">
           <img
             src={atelierImg}
-            alt="A jeweller crafting a gold ring in the AURÉLIE atelier"
+            alt="A jeweller crafting a gold ring in the oneof1custom atelier"
             loading="lazy"
             className="atelier__img"
           />
