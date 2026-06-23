@@ -115,7 +115,7 @@ function Shop() {
 
       <header style={{ marginBottom: "2.5rem" }}>
         <h1 className="page__title">
-          {activeCategory === "All" ? "All Jewellery" : activeCategory}
+          {activeCategory === "All" ? "All Pieces" : activeCategory}
         </h1>
         {search.q && <p className="filter-note">Results for "{search.q}"</p>}
       </header>
