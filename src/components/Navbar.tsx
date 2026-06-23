@@ -135,7 +135,7 @@ export function Navbar() {
               autoFocus
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search rings, necklaces, diamonds…"
+              placeholder="Search rings, bracelets, beads…"
               className="input--bare"
             />
             <Button variant="ghost" size="icon" type="button" onClick={() => setSearchOpen(false)}>
