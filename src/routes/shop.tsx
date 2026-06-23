@@ -106,45 +106,35 @@ function Shop() {
   ];
 
   return (
-    <div className="container-luxe py-12">
-      <nav className="mb-6 text-xs text-muted-foreground">
-        <Link to="/" className="hover:text-foreground">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-foreground">Shop</span>
+    <div className="container-luxe page">
+      <nav className="breadcrumb">
+        <Link to="/">Home</Link>
+        <span className="breadcrumb__sep">/</span>
+        <span className="breadcrumb__current">Shop</span>
       </nav>
 
-      <header className="mb-10">
-        <h1 className="font-serif text-4xl md:text-5xl">
+      <header style={{ marginBottom: "2.5rem" }}>
+        <h1 className="page__title">
           {activeCategory === "All" ? "All Jewellery" : activeCategory}
         </h1>
-        {search.q && (
-          <p className="mt-2 text-sm text-muted-foreground">
-            Results for "{search.q}"
-          </p>
-        )}
+        {search.q && <p className="filter-note">Results for "{search.q}"</p>}
       </header>
 
-      <div className="grid gap-10 lg:grid-cols-[240px_1fr]">
+      <div className="shop__layout">
         {/* Filters */}
-        <aside className="space-y-8">
+        <aside className="filters">
           <div>
-            <p className="eyebrow mb-4 flex items-center gap-2 text-muted-foreground">
-              <SlidersHorizontal className="size-3.5" /> Category
+            <p className="eyebrow filter-group__title">
+              <SlidersHorizontal /> Category
             </p>
-            <ul className="space-y-1">
+            <ul className="category-list">
               {categoryOptions.map((c) => (
                 <li key={c}>
                   <button
                     onClick={() =>
                       setSearch({ category: c === "All" ? undefined : (c as Category) })
                     }
-                    className={`w-full rounded-sm px-3 py-2 text-left text-sm transition-colors ${
-                      activeCategory === c
-                        ? "bg-foreground text-background"
-                        : "hover:bg-accent"
-                    }`}
+                    className={`category-btn${activeCategory === c ? " is-active" : ""}`}
                   >
                     {c}
                   </button>
@@ -154,7 +144,7 @@ function Shop() {
           </div>
 
           <div>
-            <p className="eyebrow mb-4 text-muted-foreground">Max Price</p>
+            <p className="eyebrow filter-group__title">Max Price</p>
             <Slider
               value={[maxPrice]}
               min={5000}
@@ -162,18 +152,16 @@ function Shop() {
               step={1000}
               onValueChange={([v]) => setSearch({ maxPrice: v })}
             />
-            <p className="mt-3 text-sm text-muted-foreground">
-              Up to <span className="text-foreground">{formatPrice(maxPrice)}</span>
+            <p className="filter-note">
+              Up to <strong>{formatPrice(maxPrice)}</strong>
             </p>
           </div>
 
           <Button
             variant="outlineLuxe"
             size="sm"
-            className="w-full"
-            onClick={() =>
-              navigate({ search: {} })
-            }
+            className="btn--block"
+            onClick={() => navigate({ search: {} })}
           >
             Clear filters
           </Button>
@@ -181,12 +169,12 @@ function Shop() {
 
         {/* Grid */}
         <div>
-          <div className="mb-6 flex items-center justify-between">
-            <p className="text-sm text-muted-foreground">
+          <div className="shop__toolbar">
+            <p className="muted" style={{ fontSize: "0.875rem" }}>
               {filtered.length} {filtered.length === 1 ? "piece" : "pieces"}
             </p>
             <Select value={sort} onValueChange={(v) => setSearch({ sort: v as SortKey })}>
-              <SelectTrigger className="w-52">
+              <SelectTrigger className="select-w">
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
               <SelectContent>
@@ -200,21 +188,21 @@ function Shop() {
           </div>
 
           {filtered.length === 0 ? (
-            <div className="rounded-sm border border-dashed border-border py-24 text-center">
-              <p className="font-serif text-2xl">No pieces found</p>
-              <p className="mt-2 text-sm text-muted-foreground">
+            <div className="empty-state">
+              <p className="empty-state__title">No pieces found</p>
+              <p className="filter-note">
                 Try adjusting your filters or browse the full collection.
               </p>
               <Button
                 variant="luxe"
-                className="mt-6"
+                style={{ marginTop: "1.5rem" }}
                 onClick={() => navigate({ search: {} })}
               >
                 View all jewellery
               </Button>
             </div>
           ) : (
-            <div className="grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-3">
+            <div className="product-grid product-grid--3">
               {filtered.map((p) => (
                 <ProductCard key={p.id} product={p} />
               ))}
@@ -225,3 +213,4 @@ function Shop() {
     </div>
   );
 }
+

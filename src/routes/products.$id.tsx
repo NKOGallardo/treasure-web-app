@@ -37,17 +37,16 @@ export const Route = createFileRoute("/products/$id")({
 
 function ProductNotFound() {
   return (
-    <div className="container-luxe py-32 text-center">
-      <h1 className="font-serif text-4xl">Piece not found</h1>
-      <p className="mt-3 text-muted-foreground">
-        This item may have sold out or moved.
-      </p>
-      <Button asChild variant="luxe" className="mt-8">
+    <div className="container-luxe state" style={{ padding: "8rem 0" }}>
+      <h1 className="state__title">Piece not found</h1>
+      <p className="state__text">This item may have sold out or moved.</p>
+      <Button asChild variant="luxe" style={{ marginTop: "2rem" }}>
         <Link to="/shop">Back to shop</Link>
       </Button>
     </div>
   );
 }
+
 
 function ProductDetail() {
   const { product } = Route.useLoaderData();
@@ -64,65 +63,55 @@ function ProductDetail() {
   const relatedList = related.length ? related : fallbackRelated;
 
   return (
-    <div className="container-luxe py-12">
-      <nav className="mb-8 text-xs text-muted-foreground">
-        <Link to="/" className="hover:text-foreground">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <Link to="/shop" search={{ category: product.category }} className="hover:text-foreground">
+    <div className="container-luxe page">
+      <nav className="breadcrumb">
+        <Link to="/">Home</Link>
+        <span className="breadcrumb__sep">/</span>
+        <Link to="/shop" search={{ category: product.category }}>
           {product.category}
         </Link>
-        <span className="mx-2">/</span>
-        <span className="text-foreground">{product.name}</span>
+        <span className="breadcrumb__sep">/</span>
+        <span className="breadcrumb__current">{product.name}</span>
       </nav>
 
-      <div className="grid gap-10 lg:grid-cols-2">
-        <div className="relative overflow-hidden rounded-sm bg-secondary">
-          <img
-            src={product.image}
-            alt={product.name}
-            width={800}
-            height={800}
-            className="aspect-square w-full object-cover"
-          />
+      <div className="pdp__layout">
+        <div className="pdp__media">
+          <img src={product.image} alt={product.name} width={800} height={800} />
           {product.isNew && (
-            <Badge className="absolute left-4 top-4 rounded-sm bg-gold text-gold-foreground hover:bg-gold">
+            <Badge variant="gold" className="pdp__badge">
               New
             </Badge>
           )}
         </div>
 
-        <div className="flex flex-col">
-          <p className="eyebrow text-gold">{product.category}</p>
-          <h1 className="mt-3 font-serif text-4xl md:text-5xl">{product.name}</h1>
-          <div className="mt-4">
+        <div className="pdp__info">
+          <p className="eyebrow gold">{product.category}</p>
+          <h1 className="pdp__title">{product.name}</h1>
+          <div style={{ marginTop: "1rem" }}>
             <StarRating rating={product.rating} reviews={product.reviews} size="md" />
           </div>
-          <p className="mt-6 text-3xl font-medium">{formatPrice(product.price)}</p>
+          <p className="pdp__price">{formatPrice(product.price)}</p>
 
-          <p className="mt-6 leading-relaxed text-muted-foreground">
-            {product.description}
-          </p>
+          <p className="pdp__desc">{product.description}</p>
 
-          <div className="mt-6 rounded-sm border border-border bg-card p-4">
-            <p className="eyebrow mb-1 text-muted-foreground">Materials</p>
-            <p className="text-sm">{product.material}</p>
+          <div className="pdp__materials">
+            <p className="eyebrow muted" style={{ marginBottom: "0.25rem" }}>
+              Materials
+            </p>
+            <p style={{ fontSize: "0.875rem" }}>{product.material}</p>
           </div>
 
           {product.sizes && (
-            <div className="mt-6">
-              <p className="eyebrow mb-3">Select Size</p>
-              <div className="flex flex-wrap gap-2">
+            <div className="pdp__block">
+              <p className="eyebrow" style={{ marginBottom: "0.75rem" }}>
+                Select Size
+              </p>
+              <div className="size-row">
                 {product.sizes.map((s: string) => (
                   <button
                     key={s}
                     onClick={() => setSize(s)}
-                    className={`flex h-11 min-w-11 items-center justify-center rounded-sm border px-3 text-sm transition-colors ${
-                      size === s
-                        ? "border-foreground bg-foreground text-background"
-                        : "border-border hover:border-foreground"
-                    }`}
+                    className={`size-btn size-btn--lg${size === s ? " is-active" : ""}`}
                   >
                     {s}
                   </button>
@@ -131,32 +120,34 @@ function ProductDetail() {
             </div>
           )}
 
-          <div className="mt-6">
-            <p className="eyebrow mb-3">Quantity</p>
-            <div className="inline-flex items-center rounded-sm border border-border">
+          <div className="pdp__block">
+            <p className="eyebrow" style={{ marginBottom: "0.75rem" }}>
+              Quantity
+            </p>
+            <div className="qty-control qty-control--lg">
               <button
                 onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                className="flex size-11 items-center justify-center transition-colors hover:bg-accent"
+                className="qty-btn"
                 aria-label="Decrease quantity"
               >
-                <Minus className="size-4" />
+                <Minus />
               </button>
-              <span className="w-12 text-center text-sm">{quantity}</span>
+              <span className="qty-value qty-value--lg">{quantity}</span>
               <button
                 onClick={() => setQuantity((q) => q + 1)}
-                className="flex size-11 items-center justify-center transition-colors hover:bg-accent"
+                className="qty-btn"
                 aria-label="Increase quantity"
               >
-                <Plus className="size-4" />
+                <Plus />
               </button>
             </div>
           </div>
 
-          <div className="mt-8 flex gap-3">
+          <div className="pdp__cta">
             <Button
               variant="gold"
               size="xl"
-              className="flex-1"
+              className="btn--flex1"
               onClick={() => {
                 addToCart(product, quantity, size);
                 toast.success("Added to bag", {
@@ -169,34 +160,32 @@ function ProductDetail() {
             <Button
               variant="outlineLuxe"
               size="icon"
-              className="size-12"
+              style={{ width: "3rem", height: "3rem" }}
               onClick={() => toggleWishlist(product.id)}
               aria-label="Toggle wishlist"
             >
-              <Heart className={wished ? "fill-gold text-gold" : ""} />
+              <Heart className={wished ? "fill-gold" : ""} />
             </Button>
           </div>
 
-          <div className="mt-8 grid grid-cols-3 gap-4 border-t border-border pt-6 text-center">
+          <div className="pdp__trust">
             {[
               { icon: Gem, label: "Conflict-free" },
               { icon: ShieldCheck, label: "Lifetime warranty" },
               { icon: Truck, label: "Free insured delivery" },
             ].map(({ icon: Icon, label }) => (
-              <div key={label} className="flex flex-col items-center gap-2">
-                <Icon className="size-5 text-gold" />
-                <span className="text-xs text-muted-foreground">{label}</span>
+              <div key={label} className="pdp__trust-item">
+                <Icon />
+                <span>{label}</span>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <section className="mt-24">
-        <h2 className="mb-10 text-center font-serif text-3xl md:text-4xl">
-          You May Also Love
-        </h2>
-        <div className="grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4">
+      <section className="related">
+        <h2 className="related__title">You May Also Love</h2>
+        <div className="product-grid">
           {relatedList.map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
@@ -205,3 +194,4 @@ function ProductDetail() {
     </div>
   );
 }
+

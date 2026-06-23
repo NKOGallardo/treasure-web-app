@@ -1,14 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
-import {
-  ShoppingBag,
-  Heart,
-  Search,
-  Menu,
-  X,
-  Sun,
-  Moon,
-} from "lucide-react";
+import { ShoppingBag, Heart, Search, Menu, X, Sun, Moon } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -21,11 +14,6 @@ import {
 import { useStore } from "@/context/StoreContext";
 import { useTheme } from "@/lib/theme";
 import { categories } from "@/data/products";
-
-const navItemClass =
-  "relative text-xs uppercase tracking-[0.16em] text-foreground/80 transition-colors hover:text-foreground";
-const mobileItemClass =
-  "rounded-md px-3 py-3 text-sm uppercase tracking-[0.12em] transition-colors hover:bg-accent";
 
 export function Navbar() {
   const { cartCount, wishlist } = useStore();
@@ -42,42 +30,44 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
-      <div className="container-luxe flex h-16 items-center justify-between gap-4 md:h-20">
+    <header className="navbar">
+      <div className="container-luxe navbar__inner">
         {/* Mobile menu */}
         <Sheet>
-          <SheetTrigger asChild className="md:hidden">
+          <SheetTrigger asChild className="menu-trigger">
             <Button variant="ghost" size="icon" aria-label="Open menu">
               <Menu />
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="w-72">
+          <SheetContent side="left" className="sheet-width">
             <SheetHeader>
-              <SheetTitle className="font-serif text-2xl tracking-[0.2em]">
+              <SheetTitle className="serif" style={{ fontSize: "1.5rem", letterSpacing: "0.2em" }}>
                 AURÉLIE
               </SheetTitle>
             </SheetHeader>
-            <nav className="mt-8 flex flex-col gap-1 px-1">
-              <Link to="/" className={mobileItemClass}>
+            <nav className="sheet-nav">
+              <Link to="/" className="mobile-item">
                 Home
               </Link>
-              <Link to="/shop" className={mobileItemClass}>
+              <Link to="/shop" className="mobile-item">
                 Shop
               </Link>
-              <Link to="/shop" search={{ category: "Custom" }} className={mobileItemClass}>
+              <Link to="/shop" search={{ category: "Custom" }} className="mobile-item">
                 Custom
               </Link>
-              <Link to="/wishlist" className={mobileItemClass}>
+              <Link to="/wishlist" className="mobile-item">
                 Wishlist
               </Link>
-              <div className="mt-4 border-t border-border pt-4">
-                <p className="eyebrow mb-2 px-3 text-muted-foreground">Collections</p>
+              <div className="sheet-nav__group">
+                <p className="eyebrow muted" style={{ marginBottom: "0.5rem", paddingInline: "0.75rem" }}>
+                  Collections
+                </p>
                 {categories.map((c) => (
                   <Link
                     key={c.name}
                     to="/shop"
                     search={{ category: c.name }}
-                    className="block rounded-md px-3 py-2 text-sm transition-colors hover:bg-accent"
+                    className="sheet-nav__sub"
                   >
                     {c.name}
                   </Link>
@@ -87,37 +77,30 @@ export function Navbar() {
           </SheetContent>
         </Sheet>
 
-        <Link
-          to="/"
-          className="font-serif text-2xl font-medium tracking-[0.25em] md:text-3xl"
-        >
+        <Link to="/" className="navbar__brand">
           AURÉLIE
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          <Link to="/" className={navItemClass} activeProps={{ className: "text-foreground" }}>
+        <nav className="navbar__nav">
+          <Link to="/" className="nav-link" activeProps={{ className: "nav-link is-active" }}>
             Home
           </Link>
-          <Link to="/shop" className={navItemClass} activeProps={{ className: "text-foreground" }}>
+          <Link to="/shop" className="nav-link" activeProps={{ className: "nav-link is-active" }}>
             Shop
           </Link>
-          <Link
-            to="/shop"
-            search={{ category: "Custom" }}
-            className={navItemClass}
-          >
+          <Link to="/shop" search={{ category: "Custom" }} className="nav-link">
             Custom
           </Link>
           <Link
             to="/wishlist"
-            className={navItemClass}
-            activeProps={{ className: "text-foreground" }}
+            className="nav-link"
+            activeProps={{ className: "nav-link is-active" }}
           >
             Wishlist
           </Link>
         </nav>
 
-        <div className="flex items-center gap-1">
+        <div className="navbar__actions">
           <Button
             variant="ghost"
             size="icon"
@@ -126,47 +109,34 @@ export function Navbar() {
           >
             <Search />
           </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            aria-label="Toggle theme"
-            onClick={toggleTheme}
-          >
+          <Button variant="ghost" size="icon" aria-label="Toggle theme" onClick={toggleTheme}>
             {theme === "dark" ? <Sun /> : <Moon />}
           </Button>
           <Button variant="ghost" size="icon" asChild aria-label="Wishlist">
-            <Link to="/wishlist" className="relative">
+            <Link to="/wishlist" className="icon-link">
               <Heart />
-              {wishlist.length > 0 && (
-                <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-gold text-[10px] font-semibold text-gold-foreground">
-                  {wishlist.length}
-                </span>
-              )}
+              {wishlist.length > 0 && <span className="count-bubble">{wishlist.length}</span>}
             </Link>
           </Button>
           <Button variant="ghost" size="icon" asChild aria-label="Cart">
-            <Link to="/cart" className="relative">
+            <Link to="/cart" className="icon-link">
               <ShoppingBag />
-              {cartCount > 0 && (
-                <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-gold text-[10px] font-semibold text-gold-foreground">
-                  {cartCount}
-                </span>
-              )}
+              {cartCount > 0 && <span className="count-bubble">{cartCount}</span>}
             </Link>
           </Button>
         </div>
       </div>
 
       {searchOpen && (
-        <div className="border-t border-border/60 bg-background/95 py-3 animate-fade-up">
-          <form onSubmit={submitSearch} className="container-luxe flex items-center gap-2">
-            <Search className="size-4 text-muted-foreground" />
+        <div className="navbar__search animate-fade-up">
+          <form onSubmit={submitSearch} className="container-luxe search-form">
+            <Search className="muted" style={{ width: "1rem", height: "1rem" }} />
             <Input
               autoFocus
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search rings, necklaces, diamonds…"
-              className="border-0 bg-transparent text-base shadow-none focus-visible:ring-0"
+              className="input--bare"
             />
             <Button variant="ghost" size="icon" type="button" onClick={() => setSearchOpen(false)}>
               <X />
