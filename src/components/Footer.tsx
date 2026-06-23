@@ -55,7 +55,7 @@ export function Footer() {
           <ul className="footer__list footer__list--contact">
             <li className="footer__contact-item footer__contact-item--top">
               <MapPin />
-              42 Diamond Walk, Sandton City, Johannesburg
+              42 Creative Lane, Johannesburg
             </li>
             <li className="footer__contact-item">
               <Phone /> +27 11 555 0142
