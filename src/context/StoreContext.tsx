@@ -38,8 +38,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     try {
-      const storedCart = JSON.parse(localStorage.getItem("aurelie-cart") ?? "[]");
-      const storedWish = JSON.parse(localStorage.getItem("aurelie-wishlist") ?? "[]");
+      const storedCart = JSON.parse(localStorage.getItem("oneof1custom-cart") ?? "[]");
+      const storedWish = JSON.parse(localStorage.getItem("oneof1custom-wishlist") ?? "[]");
       if (Array.isArray(storedCart)) {
         // rehydrate product references from current catalogue
         const rebuilt: CartItem[] = storedCart
@@ -60,7 +60,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!hydrated) return;
     localStorage.setItem(
-      "aurelie-cart",
+      "oneof1custom-cart",
       JSON.stringify(
         cart.map((i) => ({ id: i.product.id, quantity: i.quantity, size: i.size })),
       ),
@@ -69,7 +69,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!hydrated) return;
-    localStorage.setItem("aurelie-wishlist", JSON.stringify(wishlist));
+    localStorage.setItem("oneof1custom-wishlist", JSON.stringify(wishlist));
   }, [wishlist, hydrated]);
 
   const value = useMemo<StoreContextValue>(() => {

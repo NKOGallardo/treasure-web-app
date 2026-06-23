@@ -20,7 +20,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
-    const stored = localStorage.getItem("aurelie-theme") as Theme | null;
+    const stored = localStorage.getItem("oneof1custom-theme") as Theme | null;
     const initial =
       stored ??
       (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
@@ -30,7 +30,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const root = document.documentElement;
     root.classList.toggle("dark", theme === "dark");
-    localStorage.setItem("aurelie-theme", theme);
+    localStorage.setItem("oneof1custom-theme", theme);
   }, [theme]);
 
   const value = useMemo(

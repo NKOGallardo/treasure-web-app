@@ -61,7 +61,7 @@ export function Footer() {
               <Phone /> +27 11 555 0142
             </li>
             <li className="footer__contact-item">
-              <Mail /> hello@aurelie.co.za
+              <Mail /> hello@oneof1custom.co.za
             </li>
           </ul>
         </div>
