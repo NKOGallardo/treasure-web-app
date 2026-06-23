@@ -58,14 +58,14 @@ function Home() {
         <div className="hero__grid">
           <div className="hero__content">
             <div className="hero__inner animate-fade-up">
-              <p className="eyebrow gold">Fine Jewellery · Est. 2024</p>
+              <p className="eyebrow gold">Handmade Beads · Est. 2024</p>
               <h1 className="hero__title">
                 Timeless pieces for{" "}
                 <span className="text-gold-gradient">unforgettable</span> moments
               </h1>
               <p className="hero__lead">
-                Ethically sourced diamonds and 18K gold, handcrafted by master jewellers into
-                heirlooms made to last generations.
+                Hand-wrapped rings and beaded bracelets made with chosen beads, crafted to be as
+                unique as you are.
               </p>
               <div className="hero__actions">
                 <Button asChild variant="gold" size="xl">
