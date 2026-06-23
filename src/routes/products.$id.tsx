@@ -170,9 +170,9 @@ function ProductDetail() {
 
           <div className="pdp__trust">
             {[
-              { icon: Gem, label: "Conflict-free" },
-              { icon: ShieldCheck, label: "Lifetime warranty" },
-              { icon: Truck, label: "Free insured delivery" },
+              { icon: Gem, label: "Hand-picked beads" },
+              { icon: ShieldCheck, label: "Made with care" },
+              { icon: Truck, label: "Free delivery across SA" },
             ].map(({ icon: Icon, label }) => (
               <div key={label} className="pdp__trust-item">
                 <Icon />
