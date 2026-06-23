@@ -1,17 +1,10 @@
-import ring from "@/assets/product-ring.jpg";
-import necklace from "@/assets/product-necklace.jpg";
-import earrings from "@/assets/product-earrings.jpg";
-import bracelet from "@/assets/product-bracelet.jpg";
-import watch from "@/assets/product-watch.jpg";
-import custom from "@/assets/product-custom.jpg";
+import peridotRing from "@/assets/ring-peridot.jpeg.asset.json";
+import amethystRing from "@/assets/ring-amethyst.jpeg.asset.json";
+import pearlBracelet from "@/assets/bracelet-pearl.jpeg.asset.json";
+import lilacStarBracelet from "@/assets/bracelet-lilac-star.jpeg.asset.json";
+import tigerEyeBracelet from "@/assets/bracelet-tigereye.jpeg.asset.json";
 
-export type Category =
-  | "Rings"
-  | "Necklaces"
-  | "Earrings"
-  | "Bracelets"
-  | "Watches"
-  | "Custom";
+export type Category = "Rings" | "Bracelets";
 
 export interface Product {
   id: string;
@@ -29,124 +22,80 @@ export interface Product {
 }
 
 export const categories: { name: Category; blurb: string; image: string }[] = [
-  { name: "Rings", blurb: "Statement & solitaire", image: ring },
-  { name: "Necklaces", blurb: "Pendants & chains", image: necklace },
-  { name: "Earrings", blurb: "Studs & drops", image: earrings },
-  { name: "Bracelets", blurb: "Tennis & bangles", image: bracelet },
-  { name: "Watches", blurb: "Timeless timepieces", image: watch },
-  { name: "Custom", blurb: "Made for you", image: custom },
+  { name: "Rings", blurb: "Hand-wrapped statement rings", image: peridotRing.url },
+  { name: "Bracelets", blurb: "Beaded & gemstone bracelets", image: pearlBracelet.url },
 ];
 
 export const products: Product[] = [
   {
-    id: "aurora-solitaire",
-    name: "Aurora Solitaire Ring",
+    id: "peridot-wrap-ring",
+    name: "Peridot Wire-Wrapped Ring",
     category: "Rings",
-    price: 18500,
+    price: 220,
     rating: 4.9,
-    reviews: 128,
-    image: ring,
-    material: "18K Yellow Gold · 1.2ct Diamond",
+    reviews: 24,
+    image: peridotRing.url,
+    material: "Gold-tone wire · Peridot-green resin stone",
     description:
-      "A timeless brilliant-cut diamond held in a delicate halo setting. The Aurora Solitaire is hand-finished by our master jewellers for a flawless silhouette that catches the light from every angle.",
+      "A one-of-a-kind hand-wrapped ring featuring a luminous green stone cradled in gold-tone wire. Each piece is made to order and unique to you.",
     isNew: true,
-    popularity: 98,
+    popularity: 96,
     sizes: ["4", "5", "6", "7", "8", "9"],
   },
   {
-    id: "celeste-pendant",
-    name: "Celeste Diamond Pendant",
-    category: "Necklaces",
-    price: 9200,
+    id: "amethyst-wrap-ring",
+    name: "Amethyst Wire-Wrapped Ring",
+    category: "Rings",
+    price: 220,
     rating: 4.8,
-    reviews: 96,
-    image: necklace,
-    material: "18K Gold · 0.5ct Diamond · 45cm Chain",
+    reviews: 19,
+    image: amethystRing.url,
+    material: "Silver-tone wire · Lilac sparkle stone",
     description:
-      "A single radiant diamond suspended on a fine rope chain. Effortless elegance that transitions from day to evening with quiet confidence.",
+      "A delicate hand-wrapped ring set with a shimmering lilac stone on silver-tone wire. A dreamy everyday piece, individually crafted.",
     isNew: true,
-    popularity: 94,
+    popularity: 93,
+    sizes: ["4", "5", "6", "7", "8", "9"],
   },
   {
-    id: "luna-studs",
-    name: "Luna Diamond Studs",
-    category: "Earrings",
-    price: 6400,
-    rating: 4.9,
-    reviews: 211,
-    image: earrings,
-    material: "18K Gold · 0.75ct Diamonds (pair)",
-    description:
-      "Classic four-prong diamond studs, perfectly matched for brilliance and clarity. The essential pair every collection deserves.",
-    popularity: 99,
-  },
-  {
-    id: "eternity-bracelet",
-    name: "Eternity Tennis Bracelet",
+    id: "pearl-rhinestone-bracelet",
+    name: "Pearl & Rhinestone Bracelet",
     category: "Bracelets",
-    price: 24800,
+    price: 180,
     rating: 5.0,
-    reviews: 64,
-    image: bracelet,
-    material: "18K Gold · 3.0ct Diamonds",
+    reviews: 31,
+    image: pearlBracelet.url,
+    material: "Glass pearls · Crystal rhinestone spacers · Elastic",
     description:
-      "An unbroken line of hand-set diamonds encircling the wrist. A modern heirloom defined by its uninterrupted sparkle.",
+      "A timeless stretch bracelet of glossy glass pearls accented with sparkling rhinestone spacers. Classic, feminine and effortless to wear.",
     popularity: 91,
   },
   {
-    id: "regent-timepiece",
-    name: "Regent Gold Timepiece",
-    category: "Watches",
-    price: 32000,
-    rating: 4.7,
-    reviews: 38,
-    image: watch,
-    material: "18K Gold Case · Sapphire Crystal",
-    description:
-      "A refined automatic movement housed in a polished gold case. Understated horology for those who value precision and presence.",
-    popularity: 86,
-  },
-  {
-    id: "bespoke-engagement",
-    name: "Bespoke Engagement Ring",
-    category: "Custom",
-    price: 28500,
-    rating: 5.0,
-    reviews: 47,
-    image: custom,
-    material: "Your choice of gold & certified diamond",
-    description:
-      "Co-create a one-of-a-kind ring with our design atelier. From stone selection to the final polish, every detail is crafted to your story.",
-    isNew: true,
-    popularity: 95,
-    sizes: ["4", "5", "6", "7", "8", "9"],
-  },
-  {
-    id: "halo-promise",
-    name: "Halo Promise Ring",
-    category: "Rings",
-    price: 12400,
-    rating: 4.8,
-    reviews: 73,
-    image: custom,
-    material: "18K Gold · 0.9ct Diamond",
-    description:
-      "A romantic halo of micro-pavé diamonds surrounding a central stone, designed to symbolise a promise that endures.",
-    popularity: 88,
-    sizes: ["4", "5", "6", "7", "8"],
-  },
-  {
-    id: "aria-drop-earrings",
-    name: "Aria Drop Earrings",
-    category: "Earrings",
-    price: 8800,
+    id: "lilac-star-bracelet",
+    name: "Lilac Star Charm Bracelet",
+    category: "Bracelets",
+    price: 150,
     rating: 4.9,
-    reviews: 58,
-    image: earrings,
-    material: "18K Gold · 1.0ct Diamonds (pair)",
+    reviews: 27,
+    image: lilacStarBracelet.url,
+    material: "Lilac glass beads · Star charm · Elastic",
     description:
-      "Graceful diamond drops that move with you, catching candlelight at every turn. The finishing note to any evening look.",
-    popularity: 84,
+      "Soft lilac beads finished with a dainty star charm on a comfortable stretch fit. Playful, pretty and perfect for stacking.",
+    isNew: true,
+    popularity: 88,
+  },
+  {
+    id: "tiger-eye-bracelet",
+    name: "Men's Tiger Eye Bracelet",
+    category: "Bracelets",
+    price: 250,
+    rating: 4.9,
+    reviews: 18,
+    image: tigerEyeBracelet.url,
+    material: "Natural tiger eye stone · Waterproof elastic",
+    description:
+      "A grounding men's bracelet strung with natural tiger eye beads. Waterproof and built for everyday wear — wear it anywhere.",
+    popularity: 90,
   },
 ];
 
