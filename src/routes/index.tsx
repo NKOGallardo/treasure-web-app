@@ -82,7 +82,7 @@ function Home() {
           <div className="hero__media">
             <img
               src={heroImg}
-              alt="Gold diamond jewellery arranged on silk"
+              alt="Handmade bead jewellery arranged on silk"
               width={1600}
               height={1200}
             />
@@ -94,10 +94,10 @@ function Home() {
       <section className="trust-bar">
         <div className="container-luxe trust-bar__grid">
           {[
-            { icon: Gem, label: "Ethically Sourced", sub: "Conflict-free diamonds" },
-            { icon: ShieldCheck, label: "Lifetime Warranty", sub: "On every piece" },
-            { icon: Truck, label: "Insured Delivery", sub: "Free across SA" },
-            { icon: Sparkles, label: "Master Crafted", sub: "By hand in our atelier" },
+            { icon: Gem, label: "Hand-picked Beads", sub: "Every bead chosen with care" },
+            { icon: ShieldCheck, label: "Made with Care", sub: "Hand-wrapped & beaded" },
+            { icon: Truck, label: "Free Delivery", sub: "Across South Africa" },
+            { icon: Sparkles, label: "Hand-crafted", sub: "Each piece made by hand" },
           ].map(({ icon: Icon, label, sub }) => (
             <div key={label} className="trust-item">
               <Icon />
@@ -160,17 +160,16 @@ function Home() {
         <div className="container-luxe atelier__inner">
           <img
             src={atelierImg}
-            alt="A jeweller crafting a gold ring in the oneof1custom atelier"
+            alt="Crafting a hand-wrapped bead ring at the oneof1custom studio"
             loading="lazy"
             className="atelier__img"
           />
           <div>
-            <p className="eyebrow gold">The Atelier</p>
-            <h2 className="atelier__title">Bespoke pieces, made for your story</h2>
+            <p className="eyebrow gold">The Studio</p>
+            <h2 className="atelier__title">Unique pieces, made for your story</h2>
             <p className="atelier__text">
-              Work hand-in-hand with our master jewellers to design a one-of-a-kind creation. From
-              selecting the perfect certified diamond to the final polish, every detail is shaped
-              around you.
+              Work with us to design a one-of-a-kind creation. From choosing the perfect bead to
+              the final wrap, every detail is shaped around you.
             </p>
             <Button asChild variant="luxe" size="lg" style={{ marginTop: "1.75rem" }}>
               <Link to="/shop">
