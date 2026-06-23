@@ -8,8 +8,8 @@ import { formatPrice } from "@/data/products";
 export const Route = createFileRoute("/cart")({
   head: () => ({
     meta: [
-      { title: "Your Bag — AURÉLIE" },
-      { name: "description", content: "Review the pieces in your AURÉLIE shopping bag." },
+      { title: "Your Bag — oneof1custom" },
+      { name: "description", content: "Review the pieces in your oneof1custom shopping bag." },
     ],
   }),
   component: Cart,

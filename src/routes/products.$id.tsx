@@ -20,14 +20,14 @@ export const Route = createFileRoute("/products/$id")({
     return {
       meta: p
         ? [
-            { title: `${p.name} — AURÉLIE` },
+            { title: `${p.name} — oneof1custom` },
             { name: "description", content: p.description },
-            { property: "og:title", content: `${p.name} — AURÉLIE` },
+            { property: "og:title", content: `${p.name} — oneof1custom` },
             { property: "og:description", content: p.description },
             { property: "og:image", content: p.image },
             { name: "twitter:image", content: p.image },
           ]
-        : [{ title: "Product — AURÉLIE" }],
+        : [{ title: "Product — oneof1custom" }],
     };
   },
   notFoundComponent: ProductNotFound,
@@ -170,9 +170,9 @@ function ProductDetail() {
 
           <div className="pdp__trust">
             {[
-              { icon: Gem, label: "Conflict-free" },
-              { icon: ShieldCheck, label: "Lifetime warranty" },
-              { icon: Truck, label: "Free insured delivery" },
+              { icon: Gem, label: "Hand-picked beads" },
+              { icon: ShieldCheck, label: "Made with care" },
+              { icon: Truck, label: "Free delivery across SA" },
             ].map(({ icon: Icon, label }) => (
               <div key={label} className="pdp__trust-item">
                 <Icon />

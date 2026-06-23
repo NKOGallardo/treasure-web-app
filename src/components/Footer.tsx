@@ -13,7 +13,7 @@ export function Footer() {
   const subscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    toast.success("Welcome to AURÉLIE", {
+    toast.success("Welcome to oneof1custom", {
       description: "You're on the list for private previews and new arrivals.",
     });
     setEmail("");
@@ -23,10 +23,10 @@ export function Footer() {
     <footer className="footer">
       <div className="container-luxe footer__grid">
         <div>
-          <h3 className="footer__brand-title">AURÉLIE</h3>
+          <h3 className="footer__brand-title">oneof1custom</h3>
           <p className="footer__lead">
-            Fine jewellery handcrafted for life's most precious moments. Ethically sourced, made
-            to last generations.
+            Handmade bead jewellery crafted for your everyday moments. Chosen beads, made to be
+            unique.
           </p>
           <div className="footer__socials">
             {[Instagram, Facebook, Twitter].map((Icon, i) => (
@@ -55,13 +55,13 @@ export function Footer() {
           <ul className="footer__list footer__list--contact">
             <li className="footer__contact-item footer__contact-item--top">
               <MapPin />
-              42 Diamond Walk, Sandton City, Johannesburg
+              42 Creative Lane, Johannesburg
             </li>
             <li className="footer__contact-item">
               <Phone /> +27 11 555 0142
             </li>
             <li className="footer__contact-item">
-              <Mail /> hello@aurelie.co.za
+              <Mail /> hello@oneof1custom.co.za
             </li>
           </ul>
         </div>
@@ -87,7 +87,7 @@ export function Footer() {
 
       <div className="footer__bottom">
         <div className="container-luxe footer__bottom-inner">
-          <p>© {new Date().getFullYear()} AURÉLIE Fine Jewellery. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} oneof1custom. All rights reserved.</p>
           <p>Crafted in South Africa · Secure checkout</p>
         </div>
       </div>

@@ -22,8 +22,8 @@ export interface Product {
 }
 
 export const categories: { name: Category; blurb: string; image: string }[] = [
-  { name: "Rings", blurb: "Hand-wrapped statement rings", image: peridotRing.url },
-  { name: "Bracelets", blurb: "Beaded & gemstone bracelets", image: pearlBracelet.url },
+  { name: "Rings", blurb: "Hand-wrapped rings", image: peridotRing.url },
+  { name: "Bracelets", blurb: "Beaded bracelets", image: pearlBracelet.url },
 ];
 
 export const products: Product[] = [

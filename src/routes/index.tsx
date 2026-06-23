@@ -10,16 +10,16 @@ import atelierImg from "@/assets/atelier.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AURÉLIE — Fine Jewellery Handcrafted in South Africa" },
+      { title: "oneof1custom — Handmade Bead Jewellery" },
       {
         name: "description",
         content:
-          "Explore AURÉLIE's collection of ethically sourced diamond rings, necklaces, earrings and bespoke fine jewellery, handcrafted for life's most precious moments.",
+          "Explore the oneof1custom collection of hand-wrapped rings, beaded bracelets and unique handmade pieces, crafted for your everyday style.",
       },
-      { property: "og:title", content: "AURÉLIE — Fine Jewellery" },
+      { property: "og:title", content: "oneof1custom — Handmade Bead Jewellery" },
       {
         property: "og:description",
-        content: "Ethically sourced diamond jewellery, handcrafted in South Africa.",
+        content: "Handmade bead jewellery crafted with chosen beads in South Africa.",
       },
     ],
   }),
@@ -29,19 +29,19 @@ export const Route = createFileRoute("/")({
 const testimonials = [
   {
     quote:
-      "The craftsmanship is extraordinary. My engagement ring exceeded every expectation — it sparkles like nothing I've ever seen.",
+      "The craftsmanship is extraordinary. My bracelet exceeded every expectation — the colours are like nothing I've ever seen.",
     name: "Naledi M.",
     location: "Cape Town",
   },
   {
     quote:
-      "From the first sketch to the final piece, the AURÉLIE atelier made the whole experience feel deeply personal and luxurious.",
+      "From the first sketch to the final piece, the oneof1custom studio made the whole experience feel deeply personal.",
     name: "James & Priya",
     location: "Johannesburg",
   },
   {
     quote:
-      "Impeccable service and a truly timeless necklace. It has become the piece I reach for every single day.",
+      "Impeccable service and a truly timeless bracelet. It has become the piece I reach for every single day.",
     name: "Sophia L.",
     location: "Durban",
   },
@@ -58,14 +58,14 @@ function Home() {
         <div className="hero__grid">
           <div className="hero__content">
             <div className="hero__inner animate-fade-up">
-              <p className="eyebrow gold">Fine Jewellery · Est. 2024</p>
+              <p className="eyebrow gold">Handmade Beads · Est. 2024</p>
               <h1 className="hero__title">
                 Timeless pieces for{" "}
                 <span className="text-gold-gradient">unforgettable</span> moments
               </h1>
               <p className="hero__lead">
-                Ethically sourced diamonds and 18K gold, handcrafted by master jewellers into
-                heirlooms made to last generations.
+                Hand-wrapped rings and beaded bracelets made with chosen beads, crafted to be as
+                unique as you are.
               </p>
               <div className="hero__actions">
                 <Button asChild variant="gold" size="xl">
@@ -82,7 +82,7 @@ function Home() {
           <div className="hero__media">
             <img
               src={heroImg}
-              alt="Gold diamond jewellery arranged on silk"
+              alt="Handmade bead jewellery arranged on silk"
               width={1600}
               height={1200}
             />
@@ -94,10 +94,10 @@ function Home() {
       <section className="trust-bar">
         <div className="container-luxe trust-bar__grid">
           {[
-            { icon: Gem, label: "Ethically Sourced", sub: "Conflict-free diamonds" },
-            { icon: ShieldCheck, label: "Lifetime Warranty", sub: "On every piece" },
-            { icon: Truck, label: "Insured Delivery", sub: "Free across SA" },
-            { icon: Sparkles, label: "Master Crafted", sub: "By hand in our atelier" },
+            { icon: Gem, label: "Hand-picked Beads", sub: "Every bead chosen with care" },
+            { icon: ShieldCheck, label: "Made with Care", sub: "Hand-wrapped & beaded" },
+            { icon: Truck, label: "Free Delivery", sub: "Across South Africa" },
+            { icon: Sparkles, label: "Hand-crafted", sub: "Each piece made by hand" },
           ].map(({ icon: Icon, label, sub }) => (
             <div key={label} className="trust-item">
               <Icon />
@@ -160,17 +160,16 @@ function Home() {
         <div className="container-luxe atelier__inner">
           <img
             src={atelierImg}
-            alt="A jeweller crafting a gold ring in the AURÉLIE atelier"
+            alt="Crafting a hand-wrapped bead ring at the oneof1custom studio"
             loading="lazy"
             className="atelier__img"
           />
           <div>
-            <p className="eyebrow gold">The Atelier</p>
-            <h2 className="atelier__title">Bespoke pieces, made for your story</h2>
+            <p className="eyebrow gold">The Studio</p>
+            <h2 className="atelier__title">Unique pieces, made for your story</h2>
             <p className="atelier__text">
-              Work hand-in-hand with our master jewellers to design a one-of-a-kind creation. From
-              selecting the perfect certified diamond to the final polish, every detail is shaped
-              around you.
+              Work with us to design a one-of-a-kind creation. From choosing the perfect bead to
+              the final wrap, every detail is shaped around you.
             </p>
             <Button asChild variant="luxe" size="lg" style={{ marginTop: "1.75rem" }}>
               <Link to="/shop">

@@ -33,16 +33,16 @@ export const Route = createFileRoute("/shop")({
   }),
   head: () => ({
     meta: [
-      { title: "Shop Fine Jewellery — AURÉLIE" },
+      { title: "Shop Handmade Bead Jewellery — oneof1custom" },
       {
         name: "description",
         content:
-          "Browse the full AURÉLIE collection of diamond rings, necklaces, earrings, bracelets, watches and bespoke jewellery. Filter by category, price and style.",
+          "Browse the full oneof1custom collection of hand-wrapped rings, beaded bracelets and unique jewellery pieces. Filter by category, price and style.",
       },
-      { property: "og:title", content: "Shop Fine Jewellery — AURÉLIE" },
+      { property: "og:title", content: "Shop Handmade Bead Jewellery — oneof1custom" },
       {
         property: "og:description",
-        content: "Browse diamond rings, necklaces, earrings and bespoke jewellery.",
+        content: "Browse hand-wrapped rings, beaded bracelets and unique jewellery pieces.",
       },
     ],
   }),
@@ -115,7 +115,7 @@ function Shop() {
 
       <header style={{ marginBottom: "2.5rem" }}>
         <h1 className="page__title">
-          {activeCategory === "All" ? "All Jewellery" : activeCategory}
+          {activeCategory === "All" ? "All Pieces" : activeCategory}
         </h1>
         {search.q && <p className="filter-note">Results for "{search.q}"</p>}
       </header>
