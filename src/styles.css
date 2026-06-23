@@ -838,6 +838,7 @@ svg {
   color: var(--primary-foreground);
 }
 .footer__grid {
+  margin: 20px;
   display: grid;
   gap: 3rem;
   padding: 4rem 0;
@@ -994,6 +995,7 @@ svg {
   background-color: var(--card);
 }
 .trust-bar__grid {
+  margin: 20px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
@@ -1840,6 +1842,7 @@ svg {
     display: none;
   }
   .footer__grid {
+    margin: 20px;
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   .footer__bottom-inner {
