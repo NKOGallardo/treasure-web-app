@@ -1905,7 +1905,7 @@ svg {
     letter-spacing: 0.1em;
   }
   .navbar__actions {
-    gap: 0;
+    display: none;
   }
   .navbar__actions .btn--icon,
   .menu-trigger .btn--icon,
