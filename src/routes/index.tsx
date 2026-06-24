@@ -202,14 +202,16 @@ function Home() {
             <p className="eyebrow gold">Loved By</p>
             <h2 className="section-head__title">Our Clients</h2>
           </div>
+          
           <div className="testimonials__grid">
             {testimonials.map((t) => (
               <figure key={t.name} className="testimonial-card">
-                <StarRating rating={5} size="md" />
-                <blockquote>"{t.quote}"</blockquote>
-                <figcaption>
+                
                   <span className="name">{t.name}</span>
                   <span className="loc"> · {t.location}</span>
+                <blockquote>"{t.quote}"</blockquote>
+                <figcaption>
+                  <StarRating rating={5} size="md" />
                 </figcaption>
               </figure>
             ))}

@@ -1924,6 +1924,7 @@ svg {
     width: 100%;
   }
   .product-grid {
+    grid-template-columns: none;
     column-gap: 0.75rem;
     row-gap: 2rem;
   }
