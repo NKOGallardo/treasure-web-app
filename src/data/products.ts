@@ -1,4 +1,4 @@
-import lavenderRing from "@/assets/Lavender.jpeg";
+import lavenderRing from "@/assets/lanveder-ring.jpeg";
 import amethystRing from "@/assets/Cat-eye.jpeg";
 import lavenderBracelet from "@/assets/Lavender.jpeg";
 import tigerEyeBracelet from "@/assets/bracelet-tigereye.jpeg";
