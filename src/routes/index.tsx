@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/ProductCard";
 import { StarRating } from "@/components/StarRating";
 import { products, categories } from "@/data/products";
-import heroImg from "@/assets/hero.jpg";
-import atelierImg from "@/assets/atelier.jpg";
+import heroImg from "@/assets/the-face.jpg";
+import atelierImg from "@/assets/the-face.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
