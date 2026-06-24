@@ -1909,6 +1909,10 @@ svg {
     letter-spacing: 0.1em;
   }
   .navbar__actions {
+    display: flex;
+    gap: 0.25rem;
+  }
+  .navbar__actions > *:not(:last-child) {
     display: none;
   }
   .navbar__actions .btn--icon,
