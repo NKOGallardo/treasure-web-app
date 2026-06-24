@@ -90,6 +90,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@oneof1custom" },
+      { name: "twitter:title", content: "oneof1custom — Handmade Bead Jewellery" },
+      { name: "description", content: "Jewel Craft Studio is a premium e-commerce website for a luxury jewellery brand." },
+      { property: "og:description", content: "Jewel Craft Studio is a premium e-commerce website for a luxury jewellery brand." },
+      { name: "twitter:description", content: "Jewel Craft Studio is a premium e-commerce website for a luxury jewellery brand." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2f6bccc2-92de-4635-845c-5a759a270df8/id-preview-e329d8e8--baefa54b-cfc0-4172-94cf-e82c76d6ece7.lovable.app-1782282041632.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2f6bccc2-92de-4635-845c-5a759a270df8/id-preview-e329d8e8--baefa54b-cfc0-4172-94cf-e82c76d6ece7.lovable.app-1782282041632.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
