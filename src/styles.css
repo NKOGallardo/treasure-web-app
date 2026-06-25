@@ -1328,6 +1328,7 @@ svg {
 
 /* ----------------------------------------------------------------- Breadcrumb */
 .breadcrumb {
+  margin-left: 20px;
   margin-bottom: 1.5rem;
   font-size: 0.75rem;
   color: var(--muted-foreground);
@@ -1359,6 +1360,7 @@ svg {
   gap: 2.5rem;
 }
 .filters {
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -1406,12 +1408,14 @@ svg {
   font-weight: 400;
 }
 .shop__header {
+  margin-left: 20px;
   margin-bottom: 2.5rem;
 }
 .shop__count {
   font-size: 0.875rem;
 }
 .shop__toolbar {
+  margin-right: 20px;
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
@@ -1909,10 +1913,6 @@ svg {
     letter-spacing: 0.1em;
   }
   .navbar__actions {
-    display: flex;
-    gap: 0.25rem;
-  }
-  .navbar__actions > *:not(:last-child) {
     display: none;
   }
   .navbar__actions .btn--icon,
