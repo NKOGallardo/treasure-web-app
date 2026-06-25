@@ -22,7 +22,7 @@ interface ShopSearch {
   maxPrice?: number;
 }
 
-const PRICE_CEILING = 35000;
+const PRICE_CEILING = 1000;
 
 export const Route = createFileRoute("/shop")({
   validateSearch: (search: Record<string, unknown>): ShopSearch => ({
@@ -147,9 +147,9 @@ function Shop() {
             <p className="eyebrow filter-group__title">Max Price</p>
             <Slider
               value={[maxPrice]}
-              min={5000}
+              min={50}
               max={PRICE_CEILING}
-              step={1000}
+              step={1}
               onValueChange={([v]) => setSearch({ maxPrice: v })}
             />
             <p className="filter-note">
