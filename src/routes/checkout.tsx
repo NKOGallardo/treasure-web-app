@@ -26,12 +26,32 @@ function Checkout() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Build a WhatsApp message with the order details and open a chat to the
+    // store's number so the order can be sent through. (+27 = South Africa,
+    // local number 060 342 2259.)
+    const lines = cart.map(
+      (item) =>
+        `• ${item.product.name}${item.size ? ` (Size ${item.size})` : ""} ×${item.quantity} — ${formatPrice(
+          item.product.price * item.quantity,
+        )}`,
+    );
+    const message = [
+      "Hi oneof1custom! I'd like to place this order:",
+      "",
+      ...lines,
+      "",
+      `Total: ${formatPrice(subtotal)}`,
+    ].join("\n");
+    const whatsappUrl = `https://wa.me/27603422259?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
     // Payment gateway integration (e.g. PayFast) connects here once a
     // backend is added. For now we confirm the order locally.
     setPlaced(true);
     clearCart();
     toast.success("Order confirmed", {
-      description: "A confirmation email is on its way.",
+      description: "Your order is opening in WhatsApp — tap send to confirm.",
     });
   };
 
