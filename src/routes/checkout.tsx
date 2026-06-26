@@ -27,6 +27,21 @@ function Checkout() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Collect the customer's contact + delivery details from the form so we can
+    // include "who they are" in the WhatsApp message.
+    const form = e.currentTarget as HTMLFormElement;
+    const get = (id: string) =>
+      (form.elements.namedItem(id) as HTMLInputElement | null)?.value.trim() ?? "";
+
+    const name = [get("firstName"), get("lastName")].filter(Boolean).join(" ");
+    const addressParts = [
+      get("address"),
+      get("suburb"),
+      get("city"),
+      get("province"),
+      get("postal"),
+    ].filter(Boolean);
+
     // Build a WhatsApp message with the order details and open a chat to the
     // store's number so the order can be sent through. (+27 = South Africa,
     // local number 060 342 2259.)
@@ -39,18 +54,23 @@ function Checkout() {
     const message = [
       "Hi oneof1custom! I'd like to place this order:",
       "",
+      `Name: ${name}`,
+      `Email: ${get("email")}`,
+      `Phone: ${get("phone")}`,
+      addressParts.length ? `Delivery: ${addressParts.join(", ")}` : "",
+      "",
       ...lines,
       "",
       `Total: ${formatPrice(subtotal)}`,
-    ].join("\n");
+    ]
+      .filter((line) => line !== "")
+      .join("\n");
     const whatsappUrl = `https://wa.me/27603422259?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 
-    // Payment gateway integration (e.g. PayFast) connects here once a
-    // backend is added. For now we confirm the order locally.
     setPlaced(true);
     clearCart();
-    toast.success("Order confirmed", {
+    toast.success("Order ready", {
       description: "Your order is opening in WhatsApp — tap send to confirm.",
     });
   };
