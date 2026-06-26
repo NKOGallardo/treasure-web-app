@@ -130,30 +130,13 @@ function Checkout() {
             </div>
           </section>
 
-          {/* Payment */}
-          <section>
-            <div className="payment-head">
-              <h2 className="checkout-section__title">Payment</h2>
-              <span className="payment-secured">
-                <Lock /> Secured
-              </span>
-            </div>
-            <div className="payment-card">
-              <div className="payment-card__head">
-                <CreditCard /> Card / PayFast
-              </div>
-              <p className="payment-card__note">
-                Secure payment processing will be enabled here once your payment gateway (such as
-                PayFast) is connected.
-              </p>
-              <div className="form-grid form-grid--2">
-                <Field id="card" label="Card number" placeholder="•••• •••• •••• ••••" className="col-span-2" />
-                <Field id="expiry" label="Expiry" placeholder="MM / YY" />
-                <Field id="cvc" label="CVC" placeholder="•••" />
-              </div>
-            </div>
-          </section>
+          <p className="checkout-note">
+            No online payment needed — once you place your order, WhatsApp opens
+            with your details and items ready to send. We'll confirm payment and
+            delivery with you directly on chat.
+          </p>
         </div>
+
 
         <aside className="summary summary--sticky">
           <h2 className="summary__title">Order Summary</h2>
