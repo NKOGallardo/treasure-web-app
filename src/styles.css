@@ -1677,6 +1677,16 @@ svg {
   font-size: 0.75rem;
   color: var(--muted-foreground);
 }
+.checkout-note {
+  margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
 
 /* ----------------------------------------------------------------- Product detail */
 .pdp__layout {
