@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { Lock, CheckCircle2, CreditCard } from "lucide-react";
+import { CheckCircle2, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -27,6 +27,21 @@ function Checkout() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Collect the customer's contact + delivery details from the form so we can
+    // include "who they are" in the WhatsApp message.
+    const form = e.currentTarget as HTMLFormElement;
+    const get = (id: string) =>
+      (form.elements.namedItem(id) as HTMLInputElement | null)?.value.trim() ?? "";
+
+    const name = [get("firstName"), get("lastName")].filter(Boolean).join(" ");
+    const addressParts = [
+      get("address"),
+      get("suburb"),
+      get("city"),
+      get("province"),
+      get("postal"),
+    ].filter(Boolean);
+
     // Build a WhatsApp message with the order details and open a chat to the
     // store's number so the order can be sent through. (+27 = South Africa,
     // local number 060 342 2259.)
@@ -39,18 +54,23 @@ function Checkout() {
     const message = [
       "Hi oneof1custom! I'd like to place this order:",
       "",
+      `Name: ${name}`,
+      `Email: ${get("email")}`,
+      `Phone: ${get("phone")}`,
+      addressParts.length ? `Delivery: ${addressParts.join(", ")}` : "",
+      "",
       ...lines,
       "",
       `Total: ${formatPrice(subtotal)}`,
-    ].join("\n");
+    ]
+      .filter((line) => line !== "")
+      .join("\n");
     const whatsappUrl = `https://wa.me/27603422259?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 
-    // Payment gateway integration (e.g. PayFast) connects here once a
-    // backend is added. For now we confirm the order locally.
     setPlaced(true);
     clearCart();
-    toast.success("Order confirmed", {
+    toast.success("Order ready", {
       description: "Your order is opening in WhatsApp — tap send to confirm.",
     });
   };
@@ -110,30 +130,13 @@ function Checkout() {
             </div>
           </section>
 
-          {/* Payment */}
-          <section>
-            <div className="payment-head">
-              <h2 className="checkout-section__title">Payment</h2>
-              <span className="payment-secured">
-                <Lock /> Secured
-              </span>
-            </div>
-            <div className="payment-card">
-              <div className="payment-card__head">
-                <CreditCard /> Card / PayFast
-              </div>
-              <p className="payment-card__note">
-                Secure payment processing will be enabled here once your payment gateway (such as
-                PayFast) is connected.
-              </p>
-              <div className="form-grid form-grid--2">
-                <Field id="card" label="Card number" placeholder="•••• •••• •••• ••••" className="col-span-2" />
-                <Field id="expiry" label="Expiry" placeholder="MM / YY" />
-                <Field id="cvc" label="CVC" placeholder="•••" />
-              </div>
-            </div>
-          </section>
+          <p className="checkout-note">
+            No online payment needed — once you place your order, WhatsApp opens
+            with your details and items ready to send. We'll confirm payment and
+            delivery with you directly on chat.
+          </p>
         </div>
+
 
         <aside className="summary summary--sticky">
           <h2 className="summary__title">Order Summary</h2>
@@ -170,7 +173,7 @@ function Checkout() {
             <span>{formatPrice(subtotal)}</span>
           </div>
           <Button type="submit" variant="gold" size="xl" className="btn--block mt-lg">
-            <Lock /> Place Order
+            <MessageCircle /> Send Order on WhatsApp
           </Button>
         </aside>
       </form>
