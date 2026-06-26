@@ -173,7 +173,7 @@ function Checkout() {
             <span>{formatPrice(subtotal)}</span>
           </div>
           <Button type="submit" variant="gold" size="xl" className="btn--block mt-lg">
-            <Lock /> Place Order
+            <MessageCircle /> Send Order on WhatsApp
           </Button>
         </aside>
       </form>
