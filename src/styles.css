@@ -1348,6 +1348,7 @@ svg {
   padding: 3rem 0;
 }
 .page__title {
+  margin-left: 20px;
   font-size: clamp(2.25rem, 4vw, 3rem);
 }
 .page__title--mb {
