@@ -11,6 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { CartDrawer } from "@/components/CartDrawer";
 import { useStore } from "@/context/StoreContext";
 import { useTheme } from "@/lib/theme";
 import { categories } from "@/data/products";
