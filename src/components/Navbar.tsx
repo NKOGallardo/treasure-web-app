@@ -11,6 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { CartDrawer } from "@/components/CartDrawer";
 import { useStore } from "@/context/StoreContext";
 import { useTheme } from "@/lib/theme";
 import { categories } from "@/data/products";
@@ -118,12 +119,12 @@ export function Navbar() {
               {wishlist.length > 0 && <span className="count-bubble">{wishlist.length}</span>}
             </Link>
           </Button>
-          <Button variant="ghost" size="icon" asChild aria-label="Cart">
-            <Link to="/cart" className="icon-link">
+          <CartDrawer>
+            <Button variant="ghost" size="icon" aria-label="Cart" className="icon-link">
               <ShoppingBag />
               {cartCount > 0 && <span className="count-bubble">{cartCount}</span>}
-            </Link>
-          </Button>
+            </Button>
+          </CartDrawer>
         </div>
       </div>
 
