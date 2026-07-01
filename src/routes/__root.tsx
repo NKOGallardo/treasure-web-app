@@ -146,6 +146,7 @@ function RootComponent() {
               <Outlet />
             </main>
             <Footer />
+            <FloatingCart />
           </div>
 
           <Toaster position="bottom-right" />
