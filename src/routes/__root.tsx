@@ -15,6 +15,7 @@ import { ThemeProvider } from "@/lib/theme";
 import { StoreProvider } from "@/context/StoreContext";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { FloatingCart } from "@/components/FloatingCart";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
