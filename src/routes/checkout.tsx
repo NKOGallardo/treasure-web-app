@@ -65,7 +65,7 @@ function Checkout() {
     ]
       .filter((line) => line !== "")
       .join("\n");
-    const whatsappUrl = `https://wa.me/27603422259?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/27680930678?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 
     setPlaced(true);
