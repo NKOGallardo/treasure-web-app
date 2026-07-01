@@ -1954,6 +1954,12 @@ svg {
 /* ----------------------------------------------------------------- Responsive */
 
 /* Small phones (≤400px) — keep the chrome from overflowing */
+@media (max-width: 768px) {
+  .floating-cart {
+    display: flex;
+  }
+}
+
 @media (max-width: 400px) {
   .container-luxe {
     padding-inline: 1rem;
